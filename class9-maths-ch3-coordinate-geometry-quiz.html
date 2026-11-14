@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d18">
+<title>Class 9 Mathematics Chapter 3 | Coordinate Geometry Quiz | EduNexus</title>
+<style>
+:root{color-scheme:dark;--bg:#080d18;--panel:#121d30;--panel2:#1b2a42;--line:#344762;--cyan:#35d7f2;--text:#f4f7fb;--muted:#b9c6d8;--green:#20b879;--red:#e45b6b}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#152641 0%,var(--bg) 55%);font-family:Arial,"Noto Sans Devanagari",sans-serif;color:var(--text);min-height:100vh}
+.container{width:min(100% - 24px,980px);margin:22px auto 45px}
+header{padding:24px 18px;text-align:center;background:linear-gradient(135deg,#172944,#101a2b);border:1px solid var(--line);border-radius:18px;box-shadow:0 12px 35px #0005}
+.brand{font-size:14px;letter-spacing:2px;color:var(--cyan);font-weight:800}
+h1{font-size:clamp(22px,4vw,34px);margin:12px 0 8px}
+.subtitle{color:var(--muted);margin:0;line-height:1.6}
+.meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:16px 2px;color:var(--muted);font-size:14px}
+.track{height:9px;background:#293a53;border-radius:20px;overflow:hidden;margin:0 2px 16px}
+#progress{height:100%;width:1%;background:var(--cyan);transition:width .2s}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:clamp(16px,3vw,25px);margin:15px 0;box-shadow:0 8px 24px #0003}
+.question-label{color:var(--cyan);font-weight:800;font-size:14px}
+#question{font-size:clamp(17px,2.6vw,21px);line-height:1.75;margin:12px 0 20px}
+.option{display:flex;align-items:flex-start;gap:11px;width:100%;text-align:left;padding:14px;margin:10px 0;background:var(--panel2);border:1px solid #435875;border-radius:11px;color:var(--text);font-size:16px;line-height:1.55;cursor:pointer}
+.option:focus-visible,.btn:focus-visible,.palette button:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+.option .letter{font-weight:800;color:var(--cyan);min-width:22px}
+.option.selected{border:2px solid var(--cyan);background:#12384a}
+.option.correct{border-color:var(--green);background:#104632}
+.option.wrong{border-color:var(--red);background:#512630}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.btn{border:0;border-radius:9px;padding:12px 18px;background:#079fbe;color:white;font-weight:800;font-size:14px;cursor:pointer}
+.btn.secondary{background:#40516a}
+.btn.danger{background:#b33c50}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:8px}
+.palette button{border:1px solid #4a5d77;border-radius:8px;background:#263750;color:white;padding:10px 3px;cursor:pointer}
+.palette button.answered{background:#126243;border-color:#269b6b}
+.palette button.current{outline:2px solid var(--cyan);outline-offset:1px}
+.legend{display:flex;gap:15px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-top:12px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:#263750}
+.dot.done{background:#126243}.dot.now{background:var(--cyan)}
+#explanation{display:none;margin-top:15px;padding:15px;background:#1d3046;border-left:4px solid var(--cyan);border-radius:8px;line-height:1.7;white-space:pre-wrap}
+#result{display:none}
+.score{font-size:clamp(30px,7vw,48px);color:var(--cyan);font-weight:900;margin:10px 0}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.result-box{background:var(--panel2);padding:14px;border-radius:10px;text-align:center}
+.result-box strong{display:block;font-size:23px;margin-bottom:5px}
+.small{font-size:13px;color:var(--muted);line-height:1.6}
+#reviewList{display:grid;gap:10px;margin-top:16px}
+.review{padding:13px;background:var(--panel2);border-radius:10px;line-height:1.6}
+.review strong{color:var(--cyan)}
+@media(max-width:560px){.container{width:calc(100% - 14px);margin:8px auto 25px}.result-grid{grid-template-columns:1fr 1fr}.option{font-size:15px;padding:12px}}
+</style>
+</head>
+<body>
+<main class="container">
+<header>
+ <div class="brand">EDUNEXUS BY NEERAJ PAL</div>
+ <h1 id="quizTitle">CLASS 9 MATHEMATICS</h1>
+ <p class="subtitle" id="quizSubtitle">CHAPTER 3 – COORDINATE GEOMETRY<br>100 ADVANCED HOTS MCQs</p>
+</header>
+<div class="meta">
+ <span id="counter">प्रश्न 1 / 100</span>
+ <span id="answeredCount">Attempted: 0 / 100</span>
+ <span>कुल अंक: 100</span>
+</div>
+<div class="track"><div id="progress"></div></div>
+<section class="panel" id="quizPanel">
+ <div class="question-label" id="sectionLabel">ADVANCED HOTS</div>
+ <div id="question"></div>
+ <div id="options"></div>
+ <div id="explanation"></div>
+ <div class="actions">
+  <button class="btn secondary" id="prev">← Previous</button>
+  <button class="btn" id="next">Next →</button>
+  <button class="btn danger" id="submit">Submit Test</button>
+ </div>
+ <p class="small">नोट: उत्तर चुनने के लिए विकल्प पर टैप करें। प्रश्न बदलने के लिए Next/Previous या Question Palette का उपयोग करें।</p>
+</section>
+<section class="panel">
+ <h3 style="margin-top:0">Question Palette</h3>
+ <div class="palette" id="palette"></div>
+ <div class="legend"><span><i class="dot done"></i>Attempted</span><span><i class="dot now"></i>Current</span><span><i class="dot"></i>Not attempted</span></div>
+</section>
+<section class="panel" id="result">
+ <h2 style="margin-top:0">Your Quiz Result</h2>
+ <div class="score" id="score"></div>
+ <p id="resultText"></p>
+ <div class="result-grid">
+  <div class="result-box"><strong id="correctCount">0</strong><span class="small">Correct</span></div>
+  <div class="result-box"><strong id="wrongCount">0</strong><span class="small">Wrong</span></div>
+  <div class="result-box"><strong id="skipCount">0</strong><span class="small">Unattempted</span></div>
+ </div>
+ <div class="actions">
+  <button class="btn" id="reviewToggle">Show Answer Review</button>
+  <button class="btn secondary" onclick="location.reload()">Retake Quiz</button>
+  <button class="btn secondary" onclick="window.print()">Print Result</button>
+ </div>
+ <div id="reviewList" hidden></div>
+</section>
+<footer class="small" style="text-align:center;padding:15px">© EduNexus by Neeraj Pal</footer>
+</main>
+<script>
+const QUIZ = {
+ title: "CLASS 9 MATHEMATICS",
+ subtitle: "CHAPTER 3 – COORDINATE GEOMETRY | 100 ADVANCED HOTS MCQs",
+ questions: [{"question": "किसी बिंदु के निर्देशांक (-5, 0) हैं। इस बिंदु के विषय में कौन-सा कथन पूर्णतः सही है?", "options": ["यह द्वितीय चतुर्थांश में स्थित है।", "यह ऋणात्मक X-अक्ष पर स्थित है।", "यह ऋणात्मक Y-अक्ष पर स्थित है।", "यह मूलबिंदु से 5 इकाई ऊपर है।"], "answer": 1, "explanation": "जिस बिंदु की कोटि शून्य और भुज ऋणात्मक हो, वह ऋणात्मक X-अक्ष पर होता है।"}, {"question": "एक बिंदु का भुज (Abscissa) शून्य तथा कोटि (Ordinate) ऋणात्मक है। वह कहाँ स्थित होगा?", "options": ["धनात्मक Y-अक्ष पर", "ऋणात्मक X-अक्ष पर", "ऋणात्मक Y-अक्ष पर", "तृतीय चतुर्थांश में"], "answer": 2, "explanation": "भुज शून्य होने पर बिंदु Y-अक्ष पर होता है; ऋणात्मक कोटि उसे ऋणात्मक Y-अक्ष पर रखती है।"}, {"question": "बिंदु P(-4, 7) के संबंध में निम्नलिखित में से कौन-सा कथन सही है?", "options": ["P की भुज 7 तथा कोटि -4 है।", "P की भुज -4 तथा कोटि 7 है।", "P की दोनों निर्देशांक ऋणात्मक हैं।", "P की दोनों निर्देशांक धनात्मक हैं।"], "answer": 1, "explanation": "क्रमित युग्म (x,y) में पहला निर्देशांक भुज और दूसरा कोटि होता है।"}, {"question": "यदि किसी बिंदु के दोनों निर्देशांक शून्य से भिन्न तथा विपरीत चिह्न वाले हों, तो वह किसमें हो सकता है?", "options": ["केवल प्रथम चतुर्थांश", "केवल तृतीय चतुर्थांश", "प्रथम या तृतीय चतुर्थांश", "द्वितीय या चतुर्थ चतुर्थांश"], "answer": 3, "explanation": "विपरीत चिह्न वाले निर्देशांक द्वितीय (-,+) या चतुर्थ (+,-) चतुर्थांश में होते हैं।"}, {"question": "निम्न में से कौन-सा बिंदु किसी भी चतुर्थांश में स्थित नहीं है?", "options": ["(0, 6)", "(6, 6)", "(-6, -6)", "(6, -6)"], "answer": 0, "explanation": "(0,6) Y-अक्ष पर है; अक्ष पर स्थित बिंदु किसी चतुर्थांश में नहीं होता।"}, {"question": "यदि किसी बिंदु की भुज और कोटि बराबर हैं तथा दोनों ऋणात्मक हैं, तो वह किस चतुर्थांश में होगा?", "options": ["प्रथम", "द्वितीय", "तृतीय", "चतुर्थ"], "answer": 2, "explanation": "दोनों निर्देशांक ऋणात्मक होने पर बिंदु तृतीय चतुर्थांश में होता है।"}, {"question": "बिंदु (-8, -3) को X-अक्ष के सापेक्ष परावर्तित करने पर नया बिंदु होगा?", "options": ["(8, -3)", "(-8, 3)", "(8, 3)", "(-3, -8)"], "answer": 1, "explanation": "X-अक्ष में परावर्तन पर x वही रहता है और y का चिह्न बदलता है।"}, {"question": "बिंदु (5, -9) का Y-अक्ष के सापेक्ष प्रतिबिंब क्या होगा?", "options": ["(-5, -9)", "(5, 9)", "(-5, 9)", "(9, -5)"], "answer": 0, "explanation": "Y-अक्ष में परावर्तन पर x का चिह्न बदलता है और y वही रहता है।"}, {"question": "किसी बिंदु का मूलबिंदु के सापेक्ष प्रतिबिंब (-7, 4) है। मूल बिंदु के निर्देशांक क्या होंगे?", "options": ["(-7, -4)", "(7, 4)", "(7, -4)", "(-4, 7)"], "answer": 2, "explanation": "मूलबिंदु के सापेक्ष परावर्तन में दोनों निर्देशांकों के चिह्न बदलते हैं।"}, {"question": "यदि बिंदु A(a, b), प्रथम चतुर्थांश में है, तो कौन-सी शर्त आवश्यक है?", "options": ["a<0, b>0", "a>0, b>0", "a<0, b<0", "a>0, b<0"], "answer": 1, "explanation": "प्रथम चतुर्थांश में भुज और कोटि दोनों धनात्मक होते हैं।"}, {"question": "बिंदु (3, -5) में X-निर्देशांक को 4 इकाई बढ़ाने तथा Y-निर्देशांक को 2 इकाई घटाने पर नया बिंदु क्या होगा?", "options": ["(7, -7)", "(7, -3)", "(-1, -7)", "(1, -3)"], "answer": 0, "explanation": "नया x=3+4=7 और नया y=-5-2=-7 होगा।"}, {"question": "एक बिंदु (a, b) को X-अक्ष के समानांतर 6 इकाई बाईं ओर ले जाने पर उसका नया निर्देशांक होगा?", "options": ["(a+6, b)", "(a, b-6)", "(a-6, b)", "(a-6, b+6)"], "answer": 2, "explanation": "बाईं ओर जाने पर केवल x-निर्देशांक 6 घटता है।"}, {"question": "यदि P(2, 3) को 3 इकाई नीचे तथा 5 इकाई दाईं ओर ले जाया जाए, तो प्राप्त बिंदु होगा?", "options": ["(7, 6)", "(-3, 0)", "(7, 0)", "(5, 6)"], "answer": 2, "explanation": "दाईं ओर 5 से x=7 और नीचे 3 से y=0 होगा।"}, {"question": "किसी बिंदु की भुज -6 है। यदि वह Y-अक्ष से 6 इकाई दूर है, तो कौन-सा निष्कर्ष सही है?", "options": ["उसकी कोटि भी -6 होगी।", "वह X-अक्ष पर होगा।", "वह मूलबिंदु होगा।", "उसकी Y-अक्ष से दूरी 6 इकाई है।"], "answer": 3, "explanation": "Y-अक्ष से दूरी |x| होती है; x=-6 होने पर दूरी 6 है।"}, {"question": "यदि किसी बिंदु की कोटि 0 है और भुज 9 है, तो वह कहाँ होगा?", "options": ["धनात्मक X-अक्ष", "धनात्मक Y-अक्ष", "प्रथम चतुर्थांश", "मूलबिंदु"], "answer": 0, "explanation": "(9,0) धनात्मक X-अक्ष पर स्थित है।"}, {"question": "निम्न में से किस बिंदु की X-अक्ष से दूरी सबसे अधिक है?", "options": ["(2, -8)", "(5, 6)", "(-7, 7)", "(9, -5)"], "answer": 0, "explanation": "X-अक्ष से दूरी |y| होती है; विकल्पों में सबसे अधिक 8 है।"}, {"question": "बिंदु (-3, 8) किस चतुर्थांश में स्थित है और उसकी Y-अक्ष से दूरी कितनी है?", "options": ["प्रथम, 3 इकाई", "द्वितीय, 3 इकाई", "तृतीय, 8 इकाई", "चतुर्थ, 8 इकाई"], "answer": 1, "explanation": "(-,+) द्वितीय चतुर्थांश है और Y-अक्ष से दूरी |-3|=3 है।"}, {"question": "यदि किसी बिंदु की X-अक्ष से दूरी 5 इकाई है, तो उसकी कोटि क्या हो सकती है?", "options": ["केवल 5", "केवल -5", "5 या -5", "शून्य"], "answer": 2, "explanation": "X-अक्ष से दूरी |y| है, इसलिए y=5 या y=-5 हो सकता है।"}, {"question": "बिंदु P(-4, 6) के लिए कौन-सा कथन गलत है?", "options": ["यह द्वितीय चतुर्थांश में है।", "इसकी Y-अक्ष से दूरी 4 इकाई है।", "इसकी X-अक्ष से दूरी 6 इकाई है।", "इसकी दोनों निर्देशांक समान चिह्न के हैं।"], "answer": 3, "explanation": "-4 और 6 के चिह्न विपरीत हैं, समान नहीं।"}, {"question": "एक बिंदु की भुज और कोटि क्रमशः 0 और 0 हैं। वह कौन-सा बिंदु है?", "options": ["X-अक्ष का कोई बिंदु", "Y-अक्ष का कोई बिंदु", "मूलबिंदु", "प्रथम चतुर्थांश का बिंदु"], "answer": 2, "explanation": "(0,0) मूलबिंदु है।"}, {"question": "यदि P(x, y) द्वितीय चतुर्थांश में है, तो निम्न में से कौन-सा युग्म संभव है?", "options": ["(4, -7)", "(-4, 7)", "(-4, -7)", "(4, 7)"], "answer": 1, "explanation": "द्वितीय चतुर्थांश में x ऋणात्मक तथा y धनात्मक होता है।"}, {"question": "यदि किसी बिंदु का X-निर्देशांक धनात्मक और Y-निर्देशांक शून्य हो, तो वह किस पर होगा?", "options": ["धनात्मक X-अक्ष", "धनात्मक Y-अक्ष", "चतुर्थ चतुर्थांश", "मूलबिंदु"], "answer": 0, "explanation": "(धनात्मक संख्या,0) धनात्मक X-अक्ष पर होता है।"}, {"question": "बिंदु (a, -b) चतुर्थ चतुर्थांश में है। यदि a और b दोनों शून्य से भिन्न हैं, तो:", "options": ["a<0, b<0", "a>0, b>0", "a<0, b>0", "a>0, b<0"], "answer": 1, "explanation": "चतुर्थ चतुर्थांश में x>0 और y<0; y=-b<0 होने से b>0।"}, {"question": "एक बिंदु की कोटि -7 है। यदि वह तृतीय चतुर्थांश में है, तो उसकी भुज कैसी होगी?", "options": ["धनात्मक", "शून्य", "ऋणात्मक", "निर्धारित नहीं की जा सकती"], "answer": 2, "explanation": "तृतीय चतुर्थांश में दोनों निर्देशांक ऋणात्मक होते हैं।"}, {"question": "निम्नलिखित में कौन-सा कथन सदैव सत्य है?", "options": ["प्रत्येक ऋणात्मक भुज वाला बिंदु द्वितीय चतुर्थांश में होता है।", "प्रत्येक धनात्मक कोटि वाला बिंदु प्रथम चतुर्थांश में होता है।", "X-अक्ष पर स्थित प्रत्येक बिंदु की कोटि शून्य होती है।", "Y-अक्ष पर स्थित प्रत्येक बिंदु की भुज धनात्मक होती है।"], "answer": 2, "explanation": "X-अक्ष पर प्रत्येक बिंदु का y-निर्देशांक शून्य होता है।"}, {"question": "यदि बिंदु (x, y) की भुज तथा कोटि दोनों का चिह्न बदल दिया जाए, तो नया बिंदु किस प्रकार प्राप्त होगा?", "options": ["X-अक्ष पर प्रतिबिंब", "Y-अक्ष पर प्रतिबिंब", "मूलबिंदु के सापेक्ष प्रतिबिंब", "उसी बिंदु का नाम बदलना"], "answer": 2, "explanation": "दोनों चिह्न बदलने पर (x,y) से (-x,-y) मिलता है।"}, {"question": "एक बिंदु की भुज 0 है और कोटि 11 है। यदि उसकी कोटि का चिह्न बदल दिया जाए, तो नया बिंदु:", "options": ["X-अक्ष पर होगा।", "मूलबिंदु होगा।", "ऋणात्मक Y-अक्ष पर होगा।", "धनात्मक X-अक्ष पर होगा।"], "answer": 2, "explanation": "(0,11) का y-चिह्न बदलने पर (0,-11) मिलता है।"}, {"question": "निम्न में से किस जोड़े के दोनों बिंदु एक ही चतुर्थांश में हैं?", "options": ["(2, 3), (-2, 3)", "(-3, 5), (-7, 2)", "(4, -2), (-4, -2)", "(-1, -3), (2, -3)"], "answer": 1, "explanation": "दोनों बिंदुओं के निर्देशांक (-,+) हैं, इसलिए दोनों द्वितीय चतुर्थांश में हैं।"}, {"question": "यदि A(-2, 5), B(2, 5), C(2, -5), D(-2, -5) हों, तो कौन-सा कथन सही है?", "options": ["सभी बिंदु एक ही चतुर्थांश में हैं।", "A और C एक ही चतुर्थांश में हैं।", "B और D एक ही चतुर्थांश में हैं।", "A और D दोनों की भुज ऋणात्मक है।"], "answer": 3, "explanation": "A और D दोनों की भुज -2 है।"}, {"question": "बिंदु (0, -9) के बारे में सही कथन चुनिए।", "options": ["यह तृतीय चतुर्थांश में है।", "यह ऋणात्मक Y-अक्ष पर है।", "यह ऋणात्मक X-अक्ष पर है।", "यह मूलबिंदु है।"], "answer": 1, "explanation": "x=0 और y ऋणात्मक होने से बिंदु ऋणात्मक Y-अक्ष पर है।"}, {"question": "किसी बिंदु P की X-अक्ष से दूरी 4 इकाई तथा Y-अक्ष से दूरी 7 इकाई है। निम्न में से कौन-सा निर्देशांक संभव नहीं है?", "options": ["(7, 4)", "(-7, -4)", "(7, -4)", "(-4, 7)"], "answer": 3, "explanation": "X-अक्ष से दूरी |y|=4 और Y-अक्ष से दूरी |x|=7 होनी चाहिए। पहले तीन विकल्प इन शर्तों को पूरा करते हैं; (-4,7) नहीं।"}, {"question": "बिंदु A(5, 2) और B(-5, 2) के बारे में कौन-सा कथन सही है?", "options": ["दोनों बिंदु X-अक्ष पर हैं।", "दोनों की कोटि समान है।", "दोनों की भुज समान है।", "दोनों एक ही चतुर्थांश में हैं।"], "answer": 1, "explanation": "दोनों बिंदुओं की कोटि 2 है।"}, {"question": "यदि किसी बिंदु की Y-अक्ष से दूरी 0 है, तो:", "options": ["उसकी कोटि शून्य होगी।", "उसकी भुज शून्य होगी।", "वह मूलबिंदु ही होगा।", "वह X-अक्ष पर होगा।"], "answer": 1, "explanation": "Y-अक्ष से दूरी |x| होती है; शून्य दूरी के लिए x=0।"}, {"question": "एक बिंदु P(-6, -4) को पहले Y-अक्ष के सापेक्ष और फिर X-अक्ष के सापेक्ष परावर्तित किया जाता है। अंतिम बिंदु होगा:", "options": ["(-6, 4)", "(6, -4)", "(6, 4)", "(-4, 6)"], "answer": 2, "explanation": "पहले Y-अक्ष पर (6,-4), फिर X-अक्ष पर (6,4) मिलता है।"}, {"question": "यदि P(3, 4) का प्रतिबिंब X-अक्ष में Q तथा Y-अक्ष में R है, तो Q और R के निर्देशांक क्या होंगे?", "options": ["Q(-3, 4), R(3, -4)", "Q(3, -4), R(-3, 4)", "Q(-3, -4), R(3, 4)", "Q(4, 3), R(-4, -3)"], "answer": 1, "explanation": "X-अक्ष में y का और Y-अक्ष में x का चिह्न बदलता है।"}, {"question": "एक बिंदु की दोनों निर्देशांकों के निरपेक्ष मान बराबर हैं। यदि वह द्वितीय चतुर्थांश में है, तो वह किस रूप में होगा?", "options": ["(a, a), a>0", "(-a, a), a>0", "(-a, -a), a>0", "(a, -a), a>0"], "answer": 1, "explanation": "द्वितीय चतुर्थांश में x=-a और y=a (a>0) होगा।"}, {"question": "निम्न में से कौन-सा बिंदु X-अक्ष और Y-अक्ष दोनों से समान दूरी पर है?", "options": ["(3, 5)", "(-4, 4)", "(6, -2)", "(-7, 3)"], "answer": 1, "explanation": "दोनों अक्षों से दूरी समान होने के लिए |x|=|y| होना चाहिए।"}, {"question": "यदि किसी बिंदु की भुज और कोटि का योग शून्य है, तो वह किस प्रकार की रेखा पर स्थित हो सकता है?", "options": ["y=x", "y=-x", "x=0", "y=0"], "answer": 1, "explanation": "x+y=0 से y=-x प्राप्त होता है।"}, {"question": "यदि बिंदु (a, b) और (b, a) अलग-अलग हैं, तो वे किस स्थिति में एक-दूसरे से अलग हो सकते हैं?", "options": ["हमेशा", "जब a=b", "जब a≠b", "केवल जब a=0"], "answer": 2, "explanation": "यदि a=b हो तो दोनों क्रमित युग्म समान होंगे; अलग होने के लिए a≠b।"}, {"question": "यदि किसी बिंदु का प्रतिबिंब Y-अक्ष में मूलबिंदु के समान हो, तो मूल बिंदु कौन-सा हो सकता है?", "options": ["(0, 5)", "(5, 0)", "(5, 5)", "(-5, 5)"], "answer": 0, "explanation": "Y-अक्ष में प्रतिबिंब (0,5) ही (0,5) रहता है; इसलिए मूल बिंदु (0,5) है।"}, {"question": "कथन I: मूलबिंदु की भुज शून्य होती है। कथन II: मूलबिंदु की कोटि शून्य होती है। सही विकल्प चुनिए।", "options": ["केवल कथन I सही है।", "केवल कथन II सही है।", "दोनों कथन सही हैं।", "दोनों कथन गलत हैं।"], "answer": 2, "explanation": "मूलबिंदु (0,0) है, इसलिए दोनों निर्देशांक शून्य हैं।"}, {"question": "कथन I: X-अक्ष पर स्थित सभी बिंदुओं की कोटि शून्य होती है। कथन II: Y-अक्ष पर स्थित सभी बिंदुओं की कोटि शून्य होती है।", "options": ["केवल I सही है।", "केवल II सही है।", "दोनों सही हैं।", "दोनों गलत हैं।"], "answer": 0, "explanation": "X-अक्ष पर y=0 होता है; Y-अक्ष पर x=0 होता है, y आवश्यकतः शून्य नहीं।"}, {"question": "कथन I: द्वितीय चतुर्थांश में भुज ऋणात्मक होती है। कथन II: द्वितीय चतुर्थांश में कोटि ऋणात्मक होती है।", "options": ["दोनों सही", "दोनों गलत", "केवल I सही", "केवल II सही"], "answer": 2, "explanation": "द्वितीय चतुर्थांश में x<0 और y>0 होता है।"}, {"question": "कथन I: दो अलग-अलग बिंदुओं की भुज समान हो सकती है। कथन II: दो अलग-अलग बिंदुओं की कोटि समान हो सकती है।", "options": ["केवल I", "केवल II", "दोनों", "कोई नहीं"], "answer": 2, "explanation": "दो अलग बिंदुओं में x समान या y समान हो सकता है।"}, {"question": "कथन I: X-अक्ष और Y-अक्ष एक-दूसरे के लंबवत होते हैं। कथन II: दोनों अक्षों का प्रतिच्छेदन मूलबिंदु पर होता है।", "options": ["केवल I", "केवल II", "दोनों", "कोई नहीं"], "answer": 2, "explanation": "कार्तीय तल के दोनों अक्ष लंबवत हैं और मूलबिंदु पर मिलते हैं।"}, {"question": "निम्न में से कौन-सा कथन असत्य है?", "options": ["प्रथम चतुर्थांश में दोनों निर्देशांक धनात्मक होते हैं।", "तृतीय चतुर्थांश में दोनों निर्देशांक ऋणात्मक होते हैं।", "चतुर्थ चतुर्थांश में भुज ऋणात्मक होती है।", "द्वितीय चतुर्थांश में कोटि धनात्मक होती है।"], "answer": 2, "explanation": "चतुर्थ चतुर्थांश में x धनात्मक और y ऋणात्मक होता है।"}, {"question": "किसी बिंदु का X-अक्ष पर प्रतिबिंब उसी बिंदु के बराबर है। कौन-सी शर्त आवश्यक है?", "options": ["x=0", "y=0", "x=y", "x+y=0"], "answer": 1, "explanation": "X-अक्ष में प्रतिबिंब (x,-y) है; समान होने के लिए y=0।"}, {"question": "किसी बिंदु का Y-अक्ष पर प्रतिबिंब उसी बिंदु के बराबर है। कौन-सी शर्त आवश्यक है?", "options": ["x=0", "y=0", "x=y", "x=-y"], "answer": 0, "explanation": "Y-अक्ष में प्रतिबिंब (-x,y) है; समान होने के लिए x=0।"}, {"question": "बिंदु (a, b) के X-अक्ष पर प्रतिबिंब तथा Y-अक्ष पर प्रतिबिंब के बीच कौन-सा संबंध सही है?", "options": ["दोनों हमेशा समान होते हैं।", "दोनों में केवल भुज समान होती है।", "दोनों में केवल कोटि समान होती है।", "दोनों के संबंधित निर्देशांकों के चिह्न बदलते हैं।"], "answer": 3, "explanation": "X-अक्ष का प्रतिबिंब (a,-b) और Y-अक्ष का (-a,b) है; क्रमशः अलग-अलग निर्देशांक का चिह्न बदलता है।"}, {"question": "यदि किसी बिंदु की भुज ऋणात्मक और कोटि शून्य है, तो वह:", "options": ["द्वितीय चतुर्थांश में होगा।", "तृतीय चतुर्थांश में होगा।", "ऋणात्मक X-अक्ष पर होगा।", "ऋणात्मक Y-अक्ष पर होगा।"], "answer": 2, "explanation": "(ऋणात्मक संख्या,0) ऋणात्मक X-अक्ष पर होता है।"}, {"question": "एक विद्यार्थी ने बिंदु (-3, 6) को चतुर्थ चतुर्थांश में बताया। उसकी गलती क्या है?", "options": ["भुज का चिह्न गलत समझा।", "कोटि का चिह्न गलत समझा।", "दोनों निर्देशांक शून्य हैं।", "उसने अक्षों को बदल दिया।"], "answer": 1, "explanation": "(-3,6) द्वितीय चतुर्थांश में है; चतुर्थ चतुर्थांश के लिए y ऋणात्मक होना चाहिए।"}, {"question": "यदि किसी बिंदु की भुज -a तथा कोटि a है और a धनात्मक है, तो बिंदु कहाँ होगा?", "options": ["प्रथम चतुर्थांश", "द्वितीय चतुर्थांश", "तृतीय चतुर्थांश", "चतुर्थ चतुर्थांश"], "answer": 1, "explanation": "a>0 होने पर (-a,a) के चिह्न (-,+) हैं।"}, {"question": "निम्न में से किस बिंदु का X-अक्ष से दूरी 8 तथा Y-अक्ष से दूरी 3 है?", "options": ["(8, 3)", "(3, 8)", "(-8, 3)", "(8, -3)"], "answer": 1, "explanation": "X-अक्ष से दूरी |y|=8 और Y-अक्ष से दूरी |x|=3; (3,8) सही है।"}, {"question": "यदि बिंदु P(4, -6) में दोनों निर्देशांकों का स्थान बदल दिया जाए, तो नया बिंदु होगा:", "options": ["(-6, 4)", "(6, -4)", "(-4, 6)", "(6, 4)"], "answer": 0, "explanation": "निर्देशांकों का स्थान बदलने पर (4,-6) से (-6,4) मिलता है।"}, {"question": "यदि किसी बिंदु के निर्देशांक (x, y) हैं और x+y=0, तो निम्न में से कौन-सा बिंदु इस शर्त को पूरा करता है?", "options": ["(4, 4)", "(5, -5)", "(-3, -3)", "(0, 5)"], "answer": 1, "explanation": "5+(-5)=0।"}, {"question": "बिंदु A(2, 7) और B(2, -7) के बीच कौन-सा संबंध है?", "options": ["दोनों X-अक्ष के सापेक्ष प्रतिबिंब हैं।", "दोनों Y-अक्ष के सापेक्ष प्रतिबिंब हैं।", "दोनों मूलबिंदु के सापेक्ष प्रतिबिंब हैं।", "दोनों एक ही बिंदु हैं।"], "answer": 0, "explanation": "दोनों में x समान और y विपरीत है, इसलिए वे X-अक्ष के सापेक्ष प्रतिबिंब हैं।"}, {"question": "बिंदु (-9, 0) का मूलबिंदु के सापेक्ष प्रतिबिंब क्या होगा?", "options": ["(-9, 0)", "(9, 0)", "(0, 9)", "(0, -9)"], "answer": 1, "explanation": "मूलबिंदु के सापेक्ष प्रतिबिंब (-x,-y) होता है।"}, {"question": "यदि किसी बिंदु के निर्देशांक (-a, -b) हैं, जहाँ a और b धनात्मक हैं, तो वह:", "options": ["प्रथम चतुर्थांश में होगा।", "द्वितीय चतुर्थांश में होगा।", "तृतीय चतुर्थांश में होगा।", "चतुर्थ चतुर्थांश में होगा।"], "answer": 2, "explanation": "a,b धनात्मक होने से -a और -b दोनों ऋणात्मक हैं।"}, {"question": "एक बिंदु का प्रतिबिंब X-अक्ष में (4, -5) प्राप्त होता है। मूल बिंदु क्या होगा?", "options": ["(4, 5)", "(-4, -5)", "(-4, 5)", "(5, 4)"], "answer": 0, "explanation": "X-अक्ष में प्रतिबिंब पर y का चिह्न बदलता है; उल्टा करने पर मूल (4,5) है।"}, {"question": "यदि P(a, b) का Y-अक्ष में प्रतिबिंब Q(-a, b) है, तो यह परिवर्तन किसे दर्शाता है?", "options": ["केवल कोटि का चिह्न बदलना", "केवल भुज का चिह्न बदलना", "दोनों निर्देशांक का चिह्न बदलना", "निर्देशांकों का स्थान बदलना"], "answer": 1, "explanation": "Y-अक्ष में परावर्तन पर केवल x अर्थात भुज का चिह्न बदलता है।"}, {"question": "एक शहर का नक्शा कार्तीय तल पर बनाया गया है। विद्यालय (3, 4), अस्पताल (-3, 4), बैंक (-3, -4) और पार्क (3, -4) पर हैं। विद्यालय और अस्पताल किस अक्ष के सापेक्ष प्रतिबिंब हैं?", "options": ["X-अक्ष", "Y-अक्ष", "मूलबिंदु", "कोई प्रतिबिंब नहीं"], "answer": 1, "explanation": "(3,4) का Y-अक्षीय प्रतिबिंब (-3,4) है।"}, {"question": "उपर्युक्त नक्शे में विद्यालय और पार्क के बीच प्रतिबिंब संबंध क्या है?", "options": ["X-अक्ष", "Y-अक्ष", "मूलबिंदु", "कोई नहीं"], "answer": 0, "explanation": "(3,4) का X-अक्षीय प्रतिबिंब (3,-4) है।"}, {"question": "यदि अस्पताल के निर्देशांक (-3, 4) हैं, तो बैंक के निर्देशांक में क्या परिवर्तन हुआ?", "options": ["केवल भुज का चिह्न बदला।", "केवल कोटि का चिह्न बदला।", "दोनों चिह्न बदले।", "निर्देशांकों का स्थान बदला।"], "answer": 1, "explanation": "(-3,4) से (-3,-4) जाने पर केवल y का चिह्न बदलता है।"}, {"question": "एक रोबोट (5, 2) से चलता है। पहले 5 इकाई बाईं ओर और फिर 2 इकाई नीचे जाता है। अंतिम स्थान क्या होगा?", "options": ["(0, 0)", "(10, 0)", "(0, 4)", "(5, 0)"], "answer": 0, "explanation": "x: 5-5=0 और y: 2-2=0।"}, {"question": "एक बिंदु A(0, 6) को 6 इकाई नीचे ले जाने पर वह कहाँ पहुँचेगा?", "options": ["(6, 0)", "(0, 0)", "(0, -6)", "(-6, 0)"], "answer": 1, "explanation": "(0,6) से 6 इकाई नीचे जाने पर (0,0) मिलता है।"}, {"question": "एक बिंदु (x, y) प्रथम चतुर्थांश में है। उसे X-अक्ष पर प्रतिबिंबित करने पर वह किस चतुर्थांश में जाएगा?", "options": ["प्रथम", "द्वितीय", "तृतीय", "चतुर्थ"], "answer": 3, "explanation": "(x,y) का X-अक्षीय प्रतिबिंब (x,-y) चतुर्थ चतुर्थांश में होता है।"}, {"question": "एक बिंदु (-7, 3) को मूलबिंदु के सापेक्ष प्रतिबिंबित करने के बाद किस चतुर्थांश में जाएगा?", "options": ["प्रथम", "द्वितीय", "तृतीय", "चतुर्थ"], "answer": 3, "explanation": "(-7,3) का प्रतिबिंब (7,-3) है, जो चतुर्थ चतुर्थांश में है।"}, {"question": "यदि किसी बिंदु को पहले X-अक्ष और फिर Y-अक्ष के सापेक्ष प्रतिबिंबित किया जाए, तो अंतिम परिणाम किसके बराबर होगा?", "options": ["मूल बिंदु", "मूलबिंदु के सापेक्ष प्रतिबिंब", "X-अक्ष पर प्रतिबिंब", "Y-अक्ष पर प्रतिबिंब"], "answer": 1, "explanation": "लगातार दोनों अक्षों में परावर्तन से (x,y) का (-x,-y) मिलता है।"}, {"question": "बिंदु (6, -2) और (-6, 2) के बीच क्या संबंध है?", "options": ["X-अक्ष के सापेक्ष प्रतिबिंब", "Y-अक्ष के सापेक्ष प्रतिबिंब", "मूलबिंदु के सापेक्ष प्रतिबिंब", "एक ही बिंदु"], "answer": 2, "explanation": "दोनों निर्देशांकों के चिह्न बदलने से मूलबिंदु के सापेक्ष प्रतिबिंब मिलता है।"}, {"question": "एक बिंदु की भुज 4 और कोटि -4 है। वह किस रेखा पर स्थित है?", "options": ["y=x", "y=-x", "x=0", "y=0"], "answer": 1, "explanation": "x=4 और y=-4, अतः y=-x।"}, {"question": "निम्न में से कौन-सा बिंदु न तो किसी चतुर्थांश में है और न ही मूलबिंदु पर?", "options": ["(0, 5)", "(0, 0)", "(5, 5)", "(-5, -5)"], "answer": 0, "explanation": "(0,5) Y-अक्ष पर है; यह मूलबिंदु नहीं और किसी चतुर्थांश में भी नहीं।"}, {"question": "यदि किसी बिंदु की भुज शून्य है, तो उसके बारे में कौन-सा कथन गलत है?", "options": ["वह Y-अक्ष पर स्थित होगा।", "वह किसी चतुर्थांश में नहीं होगा।", "उसकी Y-अक्ष से दूरी शून्य होगी।", "उसकी कोटि भी अनिवार्य रूप से शून्य होगी।"], "answer": 3, "explanation": "x=0 से y का शून्य होना आवश्यक नहीं है।"}, {"question": "बिंदु (-4, 9) की X-अक्ष से दूरी तथा Y-अक्ष से दूरी का सही क्रम क्या है?", "options": ["4, 9", "9, 4", "4, 4", "9, 9"], "answer": 1, "explanation": "X-अक्ष से दूरी |y|=9 और Y-अक्ष से दूरी |x|=4 है।"}, {"question": "यदि P(a, b) द्वितीय चतुर्थांश में है, तो निम्न में से कौन-सा कथन निश्चित रूप से सत्य है?", "options": ["a+b>0", "a+b<0", "ab>0", "a-b<0"], "answer": 3, "explanation": "द्वितीय चतुर्थांश में a<0 और b>0, इसलिए a-b निश्चित रूप से ऋणात्मक है।"}, {"question": "यदि P(a, b) चतुर्थ चतुर्थांश में है, तो:", "options": ["ab>0", "ab<0", "a+b<0", "a-b<0"], "answer": 1, "explanation": "चतुर्थ चतुर्थांश में a>0 और b<0, अतः ab<0।"}, {"question": "किसी बिंदु के निर्देशांक (0, -a) हैं, जहाँ a धनात्मक है। उसका स्थान क्या है?", "options": ["धनात्मक X-अक्ष", "ऋणात्मक X-अक्ष", "धनात्मक Y-अक्ष", "ऋणात्मक Y-अक्ष"], "answer": 3, "explanation": "a>0 होने से -a ऋणात्मक है; x=0 के साथ बिंदु ऋणात्मक Y-अक्ष पर है।"}, {"question": "निम्न में से किस बिंदु की दोनों अक्षों से दूरी समान नहीं है?", "options": ["(4, -4)", "(-7, 7)", "(5, 5)", "(3, -6)"], "answer": 3, "explanation": "दोनों अक्षों से दूरी समान होने के लिए |x|=|y| चाहिए; (3,-6) ऐसा नहीं है।"}, {"question": "यदि किसी बिंदु की भुज और कोटि दोनों शून्य से भिन्न हैं और उनका गुणनफल ऋणात्मक है, तो वह:", "options": ["प्रथम या तृतीय चतुर्थांश में होगा।", "द्वितीय या चतुर्थ चतुर्थांश में होगा।", "केवल प्रथम चतुर्थांश में होगा।", "केवल तृतीय चतुर्थांश में होगा।"], "answer": 1, "explanation": "गुणनफल ऋणात्मक होने पर निर्देशांकों के चिह्न विपरीत होते हैं।"}, {"question": "यदि x-y=0, तो बिंदु किस रेखा पर स्थित होगा?", "options": ["X-अक्ष", "Y-अक्ष", "y=x", "y=-x"], "answer": 2, "explanation": "x-y=0 से y=x मिलता है।"}, {"question": "यदि x+y=0 और x शून्य नहीं है, तो बिंदु किस रेखा पर स्थित होगा?", "options": ["y=x", "y=-x", "x=0", "y=0"], "answer": 1, "explanation": "x+y=0 से y=-x प्राप्त होता है।"}, {"question": "एक बिंदु का X-अक्ष में प्रतिबिंब और Y-अक्ष में प्रतिबिंब एक-दूसरे के विपरीत हैं। मूल बिंदु के बारे में कौन-सा कथन सही है?", "options": ["उसका भुज शून्य है।", "उसकी कोटि शून्य है।", "वह मूलबिंदु है।", "यह सभी बिंदुओं के लिए सत्य है।"], "answer": 3, "explanation": "X-अक्षीय प्रतिबिंब (x,-y) और Y-अक्षीय प्रतिबिंब (-x,y) एक-दूसरे के योगात्मक विपरीत हैं; यह सभी बिंदुओं के लिए सत्य है।"}, {"question": "यदि P(x, y) का मूलबिंदु के सापेक्ष प्रतिबिंब Q है, तो P और Q के निर्देशांकों का योग क्या होगा?", "options": ["(2x, 2y)", "(0, 0)", "(x, -y)", "(-x, y)"], "answer": 1, "explanation": "Q=(-x,-y), इसलिए निर्देशांक-युग्मों का योग (x-x,y-y)=(0,0) है।"}, {"question": "यदि किसी बिंदु के निर्देशांक (a, b) हैं और उसका X-अक्ष में प्रतिबिंब (a, -b) है, तो दोनों बिंदु समान कब होंगे?", "options": ["a=0", "b=0", "a=b", "a=-b"], "answer": 1, "explanation": "(a,b)=(a,-b) होने के लिए b=-b, अर्थात b=0।"}, {"question": "यदि किसी बिंदु का Y-अक्ष में प्रतिबिंब (-5, 5) है, तो मूल बिंदु क्या होगा?", "options": ["(0, -5)", "(0, 5)", "(5, 5)", "(-5, 5)"], "answer": 2, "explanation": "Y-अक्षीय प्रतिबिंब (-x,y)=(-5,5) है, इसलिए मूल बिंदु (5,5) होगा।"}, {"question": "बिंदु (a, b) तृतीय चतुर्थांश में है। निम्न में से कौन-सा युग्म संभव है?", "options": ["a=5, b=-5", "a=-5, b=-5", "a=5, b=5", "a=-5, b=5"], "answer": 1, "explanation": "तृतीय चतुर्थांश में दोनों निर्देशांक ऋणात्मक होते हैं।"}, {"question": "यदि किसी बिंदु का भुज और कोटि दोनों धनात्मक हैं, लेकिन उसका प्रतिबिंब तृतीय चतुर्थांश में है, तो किस परिवर्तन से ऐसा हुआ?", "options": ["केवल X-अक्ष पर प्रतिबिंब", "केवल Y-अक्ष पर प्रतिबिंब", "मूलबिंदु के सापेक्ष प्रतिबिंब", "निर्देशांकों का स्थान परिवर्तन"], "answer": 2, "explanation": "प्रथम चतुर्थांश के (x,y) का मूलबिंदुीय प्रतिबिंब (-x,-y) तृतीय चतुर्थांश में होता है।"}, {"question": "बिंदु A(-2, 3), B(2, 3), C(2, -3), D(-2, -3) में कौन-से दो बिंदु एक-दूसरे के मूलबिंदु के सापेक्ष प्रतिबिंब हैं?", "options": ["A और B", "B और C", "A और C", "C और D"], "answer": 2, "explanation": "A(-2,3) का मूलबिंदुीय प्रतिबिंब (2,-3)=C है।"}, {"question": "यदि P(x, y) की X-अक्ष से दूरी 0 है, तो निम्न में से क्या निश्चित है?", "options": ["x=0", "y=0", "x=y", "x=-y"], "answer": 1, "explanation": "X-अक्ष से दूरी |y| होती है; शून्य दूरी के लिए y=0।"}, {"question": "किसी बिंदु की Y-अक्ष से दूरी 5 तथा X-अक्ष से दूरी 8 है। उसका कौन-सा निर्देशांक निश्चित रूप से 8 के निरपेक्ष मान के बराबर होगा?", "options": ["भुज", "कोटि", "दोनों", "कोई नहीं"], "answer": 1, "explanation": "X-अक्ष से दूरी |y| होती है; अतः कोटि का निरपेक्ष मान 8 है।"}, {"question": "यदि दो बिंदुओं की भुज समान और कोटियाँ विपरीत हों, तो वे किसके सापेक्ष प्रतिबिंब होंगे?", "options": ["Y-अक्ष", "X-अक्ष", "मूलबिंदु", "किसी भी अक्ष के नहीं"], "answer": 1, "explanation": "भुज समान और कोटि विपरीत होने पर X-अक्षीय प्रतिबिंब होता है।"}, {"question": "बिंदु P(-6, 8) के निर्देशांकों के चिह्न बदलने तथा फिर स्थान बदलने पर नया बिंदु क्या होगा?", "options": ["(8, 6)", "(-8, -6)", "(-8, 6)", "(8, -6)"], "answer": 2, "explanation": "पहले (6,-8), फिर स्थान बदलने पर (-8,6) मिलता है।"}, {"question": "यदि किसी बिंदु का प्रतिबिंब X-अक्ष पर (7, 0) ही प्राप्त होता है, तो मूल बिंदु के संभावित निर्देशांक क्या हो सकते हैं?", "options": ["(7, 0)", "(-7, 0)", "(0, 7)", "(7, 7)"], "answer": 0, "explanation": "X-अक्षीय प्रतिबिंब (x,-y)=(7,0) के लिए मूल बिंदु (7,0) ही है।"}, {"question": "एक बिंदु P की भुज -5 है और उसकी कोटि भुज की विपरीत है। P किस चतुर्थांश में होगा?", "options": ["प्रथम", "द्वितीय", "तृतीय", "चतुर्थ"], "answer": 1, "explanation": "भुज -5 है; उसकी विपरीत कोटि +5 होगी, इसलिए (-5,5) द्वितीय चतुर्थांश में है।"}, {"question": "यदि बिंदु (x, y) की भुज तथा कोटि के वर्गों का अंतर शून्य है, तो:", "options": ["x=y या x=-y", "x=0 या y=0", "x और y दोनों धनात्मक हैं।", "x और y दोनों ऋणात्मक हैं।"], "answer": 0, "explanation": "x²-y²=0 से (x-y)(x+y)=0, अतः x=y या x=-y।"}, {"question": "एक बिंदु A(4, 0) को पहले मूलबिंदु के सापेक्ष प्रतिबिंबित किया गया तथा फिर Y-अक्ष के सापेक्ष प्रतिबिंबित किया गया। अंतिम बिंदु क्या होगा?", "options": ["(4, 0)", "(-4, 0)", "(0, 4)", "(0, -4)"], "answer": 0, "explanation": "(4,0) का मूलबिंदुीय प्रतिबिंब (-4,0), फिर Y-अक्षीय प्रतिबिंब (4,0) है।"}, {"question": "यदि किसी बिंदु की भुज और कोटि दोनों ऋणात्मक हैं तथा उनके योग का मान -10 है, तो निम्न में से कौन-सा बिंदु संभव है?", "options": ["(-4, -6)", "(-4, 6)", "(4, -6)", "(4, 6)"], "answer": 0, "explanation": "(-4)+(-6)=-10 और दोनों निर्देशांक ऋणात्मक हैं।"}, {"question": "दो बिंदु P(3, -4) और Q(-3, 4) हैं। यदि P को X-अक्ष और फिर Y-अक्ष में प्रतिबिंबित किया जाए, तो प्राप्त बिंदु:", "options": ["Q के समान होगा।", "Q का X-अक्ष में प्रतिबिंब होगा।", "Q का Y-अक्ष में प्रतिबिंब होगा।", "मूल P के समान होगा।"], "answer": 0, "explanation": "P से X-अक्षीय प्रतिबिंब (3,4), फिर Y-अक्षीय प्रतिबिंब (-3,4)=Q मिलता है।"}, {"question": "किसी बिंदु के निर्देशांक (x, y) हैं। यदि x और y दोनों का परिमाण समान है, लेकिन उनके चिह्न विपरीत हैं, तो वह किस रेखा पर होगा?", "options": ["y=x", "y=-x", "x=0", "y=0"], "answer": 1, "explanation": "विपरीत चिह्न और समान परिमाण का अर्थ y=-x है।"}, {"question": "यदि A(a, b) तथा B(-a, -b) अलग-अलग बिंदु हैं, तो उनके बारे में कौन-सा कथन सही है?", "options": ["वे हमेशा एक ही चतुर्थांश में होंगे।", "वे मूलबिंदु के सापेक्ष प्रतिबिंब होंगे।", "वे हमेशा X-अक्ष पर होंगे।", "वे हमेशा Y-अक्ष पर होंगे।"], "answer": 1, "explanation": "(a,b) का मूलबिंदुीय प्रतिबिंब (-a,-b) है। अलग-अलग होने की शर्त (a,b)≠(0,0) है।"}, {"question": "एक बिंदु P(x, y) को पहले X-अक्ष के सापेक्ष, फिर Y-अक्ष के सापेक्ष तथा अंत में मूलबिंदु के सापेक्ष प्रतिबिंबित किया जाता है। अंतिम बिंदु मूल P के सापेक्ष कैसा होगा?", "options": ["मूल बिंदु के समान", "X-अक्ष के सापेक्ष प्रतिबिंब", "Y-अक्ष के सापेक्ष प्रतिबिंब", "मूलबिंदु के सापेक्ष प्रतिबिंब"], "answer": 0, "explanation": "क्रमशः (x,-y), (-x,-y), फिर (x,y) मिलता है; अंतिम बिंदु मूल P ही है।"}]
+};
+
+let current=0;
+const answers={};
+let submitted=false;
+const $=id=>document.getElementById(id);
+const letters=["A","B","C","D"];
+
+function renderPalette(){
+ const p=$("palette");p.innerHTML="";
+ QUIZ.questions.forEach((q,i)=>{
+  const b=document.createElement("button");
+  b.type="button";b.textContent=i+1;
+  if(answers[i]!==undefined)b.classList.add("answered");
+  if(i===current)b.classList.add("current");
+  b.disabled=submitted;
+  b.addEventListener("click",()=>{current=i;renderQuestion();});
+  p.appendChild(b);
+ });
+}
+function renderQuestion(){
+ const q=QUIZ.questions[current];
+ $("counter").textContent=`प्रश्न ${current+1} / ${QUIZ.questions.length}`;
+ $("answeredCount").textContent=`Attempted: ${Object.keys(answers).length} / ${QUIZ.questions.length}`;
+ $("progress").style.width=`${((current+1)/QUIZ.questions.length)*100}%`;
+ $("question").textContent=`Q${current+1}. ${q.question}`;
+ $("options").innerHTML="";
+ q.options.forEach((opt,i)=>{
+  const b=document.createElement("button");
+  b.type="button";b.className="option";
+  if(answers[current]===i)b.classList.add("selected");
+  if(submitted){
+   b.disabled=true;
+   if(i===q.answer)b.classList.add("correct");
+   if(answers[current]===i&&i!==q.answer)b.classList.add("wrong");
+  }
+  const letter=document.createElement("span");letter.className="letter";letter.textContent=letters[i]+".";
+  const value=document.createElement("span");value.textContent=opt;
+  b.append(letter,value);
+  b.addEventListener("click",()=>{if(!submitted){answers[current]=i;renderQuestion();}});
+  $("options").appendChild(b);
+ });
+ $("explanation").style.display=submitted?"block":"none";
+ if(submitted){
+  $("explanation").textContent=`सही उत्तर: ${letters[q.answer]}\nव्याख्या: ${q.explanation}`;
+ }
+ $("prev").disabled=current===0||submitted;
+ $("next").disabled=current===QUIZ.questions.length-1||submitted;
+ $("submit").disabled=submitted;
+ renderPalette();
+}
+$("prev").addEventListener("click",()=>{if(current>0){current--;renderQuestion();}});
+$("next").addEventListener("click",()=>{if(current<QUIZ.questions.length-1){current++;renderQuestion();}});
+$("submit").addEventListener("click",()=>{
+ if(submitted)return;
+ const unanswered=QUIZ.questions.length-Object.keys(answers).length;
+ if(unanswered>0&&!confirm(`${unanswered} प्रश्न बिना उत्तर के हैं। क्या आप टेस्ट जमा करना चाहते हैं?`))return;
+ submitted=true;
+ let correct=0;
+ QUIZ.questions.forEach((q,i)=>{if(answers[i]===q.answer)correct++;});
+ const wrong=Object.keys(answers).length-correct;
+ $("score").textContent=`${correct} / ${QUIZ.questions.length}`;
+ $("correctCount").textContent=correct;
+ $("wrongCount").textContent=wrong;
+ $("skipCount").textContent=unanswered;
+ $("resultText").textContent=correct>=90?"उत्कृष्ट प्रदर्शन!":correct>=75?"बहुत अच्छा प्रयास!":correct>=50?"अच्छा प्रयास—गलत प्रश्नों का विश्लेषण करें।":"अभ्यास जारी रखें और सभी व्याख्याएँ पढ़ें।";
+ const list=$("reviewList");list.innerHTML="";
+ QUIZ.questions.forEach((q,i)=>{
+  const item=document.createElement("div");item.className="review";
+  const heading=document.createElement("strong");heading.textContent=`Q${i+1}. ${q.question}`;
+  const chosen=document.createElement("div");chosen.textContent=`आपका उत्तर: ${answers[i]===undefined?"नहीं दिया":letters[answers[i]]+". "+q.options[answers[i]]}`;
+  const correctLine=document.createElement("div");correctLine.textContent=`सही उत्तर: ${letters[q.answer]}. ${q.options[q.answer]}`;
+  const explanation=document.createElement("div");explanation.textContent=`व्याख्या: ${q.explanation}`;
+  item.append(heading,chosen,correctLine,explanation);list.appendChild(item);
+ });
+ $("result").style.display="block";
+ $("reviewToggle").addEventListener("click",()=>{
+  const hidden=list.hidden;list.hidden=!hidden;
+  $("reviewToggle").textContent=hidden?"Hide Answer Review":"Show Answer Review";
+ });
+ renderQuestion();
+ $("result").scrollIntoView({behavior:"smooth"});
+});
+renderQuestion();
+</script>
+</body>
+</html>
