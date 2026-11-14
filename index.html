@@ -99,7 +99,7 @@
   </div>
 </section>
 
-<section class="stats-section reveal-on-scroll">
+<section class="stats-section">
   <div class="stats-container">
     <div class="stat"><i class="fa-solid fa-book-open"></i><div><h3>Courses</h3><p>Structured learning</p></div></div>
     <div class="stat"><i class="fa-solid fa-file-pdf"></i><div><h3>Notes</h3><p>Study resources</p></div></div>
@@ -203,6 +203,38 @@
         </button>
       </div>
       <p class="resource-message" id="resourceMessage" aria-live="polite"></p>
+
+      <div class="mindmap-selector" id="mindMapSelector" hidden>
+        <div class="mindmap-step" id="mindMapBoardStep">
+          <span class="mindmap-step-label">STEP 1</span>
+          <h4>Select Your Board</h4>
+          <p>Choose the board you are studying under.</p>
+          <div class="mindmap-option-grid" id="mindMapBoardOptions">
+            <button type="button" class="mindmap-option" data-board="CBSE">CBSE <span>→</span></button>
+            <button type="button" class="mindmap-option" data-board="UP Board">UP Board <span>→</span></button>
+            <button type="button" class="mindmap-option" data-board="ICSE">ICSE <span>→</span></button>
+            <button type="button" class="mindmap-option" data-board="Other Board">Other Board <span>→</span></button>
+          </div>
+        </div>
+
+        <div class="mindmap-step" id="mindMapClassStep" hidden>
+          <span class="mindmap-step-label">STEP 2</span>
+          <h4 id="mindMapClassHeading">Select Your Class</h4>
+          <p id="mindMapBoardSelected"></p>
+          <div class="mindmap-option-grid mindmap-class-grid" id="mindMapClassOptions">
+            <button type="button" class="mindmap-option" data-mindmap-class="6">Class 6</button>
+            <button type="button" class="mindmap-option" data-mindmap-class="7">Class 7</button>
+            <button type="button" class="mindmap-option" data-mindmap-class="8">Class 8</button>
+            <button type="button" class="mindmap-option" data-mindmap-class="9">Class 9</button>
+            <button type="button" class="mindmap-option" data-mindmap-class="10">Class 10</button>
+            <button type="button" class="mindmap-option" data-mindmap-class="11">Class 11</button>
+            <button type="button" class="mindmap-option" data-mindmap-class="12">Class 12</button>
+          </div>
+          <button type="button" class="mindmap-back" id="mindMapChangeBoard">← Change Board</button>
+        </div>
+
+        <p class="mindmap-selection-message" id="mindMapSelectionMessage" aria-live="polite"></p>
+      </div>
     </div>
   </div>
 </section>

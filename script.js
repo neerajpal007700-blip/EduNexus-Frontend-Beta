@@ -302,6 +302,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const resource = button.dataset.resource;
 
+      const mindMapSelector = document.getElementById("mindMapSelector");
+      const mindMapBoardStep = document.getElementById("mindMapBoardStep");
+      const mindMapClassStep = document.getElementById("mindMapClassStep");
+      const mindMapBoardSelected = document.getElementById("mindMapBoardSelected");
+      const mindMapSelectionMessage = document.getElementById("mindMapSelectionMessage");
+
+      if (mindMapSelector) {
+        mindMapSelector.hidden = resource.trim().toLowerCase() !== "mind maps";
+        if (resource.trim().toLowerCase() === "mind maps") {
+          mindMapBoardStep.hidden = false;
+          mindMapClassStep.hidden = true;
+          mindMapSelectionMessage.textContent = "";
+          resourceMessage.textContent = "First select your board, then choose your class.";
+        }
+      }
+
       // CLASS 9 MATHEMATICS CHAPTER 1 QUIZ
         // CLASS 9 MATHEMATICS QUIZ REDIRECTION
 if (
@@ -344,34 +360,47 @@ if (
 
     });
 
-  });
-
-});
 
 
+  // MIND MAPS: BOARD → CLASS selection
+  const mindMapSelector = document.getElementById("mindMapSelector");
+  const mindMapBoardStep = document.getElementById("mindMapBoardStep");
+  const mindMapClassStep = document.getElementById("mindMapClassStep");
+  const mindMapBoardSelected = document.getElementById("mindMapBoardSelected");
+  const mindMapSelectionMessage = document.getElementById("mindMapSelectionMessage");
+  const mindMapChangeBoard = document.getElementById("mindMapChangeBoard");
+  let selectedMindMapBoard = "";
 
-/* EduNexus visual enhancement: accessible scroll reveal.
-   This is independent of the existing subject/class/chapter/resource logic. */
-document.addEventListener("DOMContentLoaded", () => {
-  const revealItems = document.querySelectorAll(".reveal-on-scroll");
-  if (!revealItems.length) return;
+  if (mindMapSelector) {
+    mindMapSelector.addEventListener("click", event => {
+      const boardButton = event.target.closest("[data-board]");
+      const classButton = event.target.closest("[data-mindmap-class]");
 
-  const reduceMotion = window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (boardButton) {
+        selectedMindMapBoard = boardButton.dataset.board;
+        mindMapBoardSelected.textContent = "Selected Board: " + selectedMindMapBoard;
+        mindMapBoardStep.hidden = true;
+        mindMapClassStep.hidden = false;
+        mindMapSelectionMessage.textContent = "";
+      }
 
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    revealItems.forEach((item) => item.classList.add("is-visible"));
-    return;
-  }
-
-  const observer = new IntersectionObserver((entries, activeObserver) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        activeObserver.unobserve(entry.target);
+      if (classButton) {
+        const selectedMindMapClass = classButton.dataset.mindmapClass;
+        mindMapSelectionMessage.textContent =
+          selectedMindMapBoard + " • Class " + selectedMindMapClass +
+          " selected. Mind Maps for this selection will appear here when uploaded.";
       }
     });
-  }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
 
-  revealItems.forEach((item) => observer.observe(item));
+    if (mindMapChangeBoard) {
+      mindMapChangeBoard.addEventListener("click", () => {
+        mindMapClassStep.hidden = true;
+        mindMapBoardStep.hidden = false;
+        mindMapSelectionMessage.textContent = "";
+      });
+    }
+  }
+
+  });
+
 });

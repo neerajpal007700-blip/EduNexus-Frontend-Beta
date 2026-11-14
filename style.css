@@ -406,166 +406,88 @@ button{font:inherit}
 
 
 
-/* =========================================================
-   EDUNEXUS PREMIUM MOTION LAYER — safe visual-only overrides
-   Existing layout, IDs, links and learning flow remain intact.
-   ========================================================= */
-:root {
-  --motion-ease: cubic-bezier(.22, .8, .25, 1);
+/* Mind Maps: board → class selection */
+.mindmap-selector {
+  max-width: 900px;
+  margin: 28px auto 8px;
+  padding: 25px;
+  border: 1px solid rgba(126,150,255,.28);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 95% 5%, rgba(55,217,232,.10), transparent 32%),
+    linear-gradient(145deg, #121f38, #0d172a);
+  box-shadow: 0 18px 45px rgba(0,0,0,.18);
 }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background-image:
-    radial-gradient(ellipse at 12% 8%, rgba(108,124,255,.13), transparent 34%),
-    radial-gradient(ellipse at 88% 30%, rgba(55,217,232,.08), transparent 30%);
-  background-attachment: fixed;
+.mindmap-step-label {
+  display: inline-block;
+  color: #7ee6e0;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
 }
-
-.hero {
-  isolation: isolate;
-  position: relative;
-  overflow: hidden;
+.mindmap-step h4 {
+  color: #fff;
+  font: 700 23px Outfit, sans-serif;
+  margin-bottom: 7px;
 }
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  filter: blur(75px);
-  opacity: .22;
-  pointer-events: none;
-  animation: edunexusGlow 11s ease-in-out infinite alternate;
+.mindmap-step > p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 20px;
 }
-.hero::before {
-  background: #6c7cff;
-  top: -180px;
-  left: -120px;
+.mindmap-option-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
 }
-.hero::after {
-  background: #27d9e8;
-  right: -170px;
-  bottom: -190px;
-  animation-delay: -5s;
+.mindmap-option {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px 16px;
+  color: #f4f6ff;
+  font-weight: 700;
+  text-align: left;
+  border: 1px solid rgba(135,157,255,.25);
+  border-radius: 13px;
+  background: rgba(255,255,255,.045);
+  cursor: pointer;
+  transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease;
 }
-@keyframes edunexusGlow {
-  from { transform: translate3d(0,0,0) scale(.85); }
-  to { transform: translate3d(45px,35px,0) scale(1.18); }
-}
-
-.hero-content > * {
-  animation: edunexusRise .8s var(--motion-ease) both;
-}
-.hero-content > *:nth-child(2) { animation-delay: .1s; }
-.hero-content > *:nth-child(3) { animation-delay: .2s; }
-.hero-content > *:nth-child(4) { animation-delay: .3s; }
-@keyframes edunexusRise {
-  from { opacity: 0; transform: translateY(22px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.hero-visual,
-.hero-illustration,
-.hero-card,
-.floating-card {
-  will-change: transform;
-}
-.hero-visual { animation: edunexusFloat 6s ease-in-out infinite; }
-@keyframes edunexusFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-.floating-card { animation: edunexusFloat 5s ease-in-out infinite; }
-.floating-card:nth-child(2) { animation-delay: -2.2s; }
-
-.subject-card,
-.course-card,
-.resource-card,
-.stat-card,
-.test-card,
-.learning-card {
-  transition:
-    transform .35s var(--motion-ease),
-    border-color .35s ease,
-    box-shadow .35s ease,
-    background-color .35s ease;
-}
-.subject-card:hover,
-.course-card:hover,
-.resource-card:hover,
-.test-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(108,124,255,.58);
-  box-shadow: 0 18px 48px rgba(0,0,0,.24), 0 0 24px rgba(108,124,255,.10);
-}
-
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(26px);
-  transition: opacity .75s var(--motion-ease), transform .75s var(--motion-ease);
-}
-.reveal-on-scroll.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.reveal-on-scroll .section-heading,
-.reveal-on-scroll .section-title {
-  transition: color .3s ease;
-}
-
-button, .btn, a {
-  -webkit-tap-highlight-color: transparent;
-}
-.btn {
-  transition: transform .25s var(--motion-ease), box-shadow .25s ease, filter .25s ease;
-}
-.btn:hover {
+.mindmap-option:hover,
+.mindmap-option:focus-visible {
   transform: translateY(-3px);
-  filter: brightness(1.08);
+  border-color: #7e96ff;
+  background: rgba(108,124,255,.16);
+  box-shadow: 0 10px 25px rgba(76,103,220,.15);
 }
-.btn:active { transform: translateY(0) scale(.98); }
-
-.nav-links a { position: relative; }
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -7px;
-  width: 100%;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--cyan));
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform .3s ease;
+.mindmap-option span { color: #8ea4ff; font-size: 18px; }
+.mindmap-class-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.mindmap-back {
+  margin-top: 18px;
+  padding: 10px 14px;
+  color: #bfcaff;
+  background: transparent;
+  border: 1px solid rgba(135,157,255,.35);
+  border-radius: 9px;
+  cursor: pointer;
 }
-.nav-links a:hover::after,
-.nav-links a.active::after {
-  transform: scaleX(1);
-  transform-origin: left;
+.mindmap-selection-message {
+  color: #82e5cf;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 18px;
 }
-
-:focus-visible {
-  outline: 2px solid var(--cyan);
-  outline-offset: 4px;
-}
-
 @media (max-width: 760px) {
-  body { background-attachment: scroll; }
-  .hero::before, .hero::after { width: 230px; height: 230px; filter: blur(55px); }
-  .hero-visual, .floating-card { animation-duration: 7s; }
+  .mindmap-option-grid,
+  .mindmap-class-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mindmap-selector { padding: 18px; }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    scroll-behavior: auto !important;
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-  }
-  .reveal-on-scroll { opacity: 1; transform: none; }
+@media (max-width: 380px) {
+  .mindmap-option-grid,
+  .mindmap-class-grid { grid-template-columns: 1fr; }
 }
