@@ -404,16 +404,5 @@ button{font:inherit}
   }
 }
 
-
-/* BOARD SELECTOR — Science learning path */
-.board-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:900px;margin:28px auto}
-.board-card{border:1px solid #35466d;border-radius:16px;background:linear-gradient(145deg,#172542,#101a30);color:#f4f6ff;padding:22px;text-align:left;cursor:pointer;transition:.25s;min-height:100px}
-.board-card:hover,.board-card:focus-visible{transform:translateY(-4px);border-color:#6f8cff;box-shadow:0 12px 28px #405cff22;outline:none}
-.board-card strong,.board-card small{display:block}.board-card strong{font:700 19px Outfit,sans-serif}.board-card small{color:#aab8d2;font-size:11px;margin-top:8px;line-height:1.5}
-@media(max-width:600px){.board-picker{grid-template-columns:1fr;gap:11px}.board-card{min-height:80px;padding:17px}}
-
-/* GLOBAL STUDY MATERIAL BOARD -> CLASS SELECTOR */
-.study-selector{max-width:1150px;margin:30px auto 0;padding:25px;border:1px solid #293451;border-radius:20px;background:linear-gradient(145deg,#101b30,#0b1426)}
-.study-selector-head{text-align:center;margin-bottom:18px}.study-selector-head h3{font:800 25px Outfit,sans-serif;margin:8px 0;color:#fff}.study-selector-head p{color:#aab3c8;font-size:13px}
-.study-board-grid,.study-class-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.study-board-grid button,.study-class-grid button{background:#172541;border:1px solid #35466d;border-radius:12px;color:#f4f6ff;padding:14px;cursor:pointer;font-weight:700;transition:.2s}.study-board-grid button:hover,.study-class-grid button:hover{border-color:#8294ff;transform:translateY(-3px);background:#203253}.study-selection-result{text-align:center;color:#67e3c0;font-size:13px;margin:16px 0 0}.study-selector[hidden],.study-class-grid[hidden]{display:none!important}
-@media(max-width:650px){.study-selector{padding:17px}.study-board-grid{grid-template-columns:repeat(2,1fr)}.study-class-grid{grid-template-columns:repeat(2,1fr)}}
+/* Mind-map board selector */
+#boardGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:18px 0}

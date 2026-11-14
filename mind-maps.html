@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EduNexus | Interactive Mind Maps</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#080d18;color:#eef3ff;font-family:system-ui,Arial,sans-serif}
+.wrap{max-width:1100px;margin:auto;padding:22px}.top,.panel{background:#121d30;border:1px solid #2c3d59;border-radius:18px;padding:20px;margin-bottom:16px}
+a,button{cursor:pointer}.back{color:#aebdff;text-decoration:none}.muted{color:#aebbd0}
+h1{font-size:clamp(25px,5vw,40px);margin:14px 0 8px}.pills{display:flex;gap:8px;flex-wrap:wrap}.pill{background:#233451;padding:8px 12px;border-radius:30px;font-size:13px}
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.node{border:1px solid #354b6d;background:#17263d;color:#f4f7ff;border-radius:14px;padding:16px;text-align:left;min-height:110px}.node:hover{border-color:#8c9cff;transform:translateY(-2px)}.node b{display:block;margin-bottom:7px;color:#b9c5ff}.detail{line-height:1.75;color:#d7e1f2}.detail h2{color:#b9c5ff}.hidden{display:none}.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}button.tool{border:0;border-radius:10px;padding:10px 14px;background:#687cff;color:white}
+@media(max-width:600px){.wrap{padding:12px}.top,.panel{padding:15px}}
+</style></head><body><main class="wrap">
+<header class="top"><a class="back" href="index.html#courses">← Back to Courses</a>
+<h1>🧠 Advanced Interactive Mind Maps</h1><p class="muted">EduNexus by Neeraj Pal · Concept Explorer</p>
+<div class="pills"><span class="pill" id="subject"></span><span class="pill" id="board"></span><span class="pill" id="class"></span><span class="pill" id="chapter"></span></div></header>
+<section class="panel"><h2 id="heading">Chapter Mind Map</h2><p class="muted">किसी concept पर टैप करें और उसकी विस्तृत व्याख्या पढ़ें।</p>
+<div class="map" id="map"></div></section>
+<section class="panel detail" id="detail"><h2>Concept Explorer</h2><p>ऊपर किसी concept को चुनें।</p></section>
+</main><script>
+const q=new URLSearchParams(location.search),get=k=>q.get(k)||"Not selected";
+for(const [id,key] of [["subject","subject"],["board","board"],["class","class"],["chapter","chapter"]])document.getElementById(id).textContent=({subject:"Subject: ",board:"Board: ",class:"Class: ",chapter:"Chapter: "}[key])+get(key);
+const supported=get("subject").toLowerCase()==="science"&&get("board").toLowerCase()==="up board"&&get("class")==="9"&&get("chapter")==="1";
+const title=supported?"हमारे आस-पास के पदार्थ":"Mind Map";
+document.getElementById("heading").textContent=title;
+const concepts=[
+["पदार्थ की प्रकृति","पदार्थ वह है जिसका द्रव्यमान होता है और जो स्थान घेरता है। पदार्थ सूक्ष्म कणों से बना होता है।"],
+["कणों के बीच रिक्त स्थान","कणों के बीच खाली जगह होती है। इसी कारण चीनी या नमक पानी में घुलकर उसके कणों के बीच की जगह में फैल सकते हैं।"],
+["कणों की निरंतर गति","पदार्थ के कण लगातार गतिशील रहते हैं। तापमान बढ़ने पर उनकी औसत गतिज ऊर्जा बढ़ती है और विसरण तेज होता है।"],
+["कणों का आकर्षण बल","कण एक-दूसरे को आकर्षित करते हैं। सामान्यतः ठोस में आकर्षण अधिक और गैस में बहुत कम होता है।"],
+["ठोस, द्रव और गैस","ठोस का आकार व आयतन निश्चित; द्रव का आयतन निश्चित पर आकार पात्र के अनुसार; गैस का न आकार न आयतन निश्चित।"],
+["अवस्था परिवर्तन","ताप या दाब बदलने से गलन, जमना, वाष्पीकरण, संघनन और उर्ध्वपातन जैसी प्रक्रियाएँ होती हैं।"],
+["गलनांक और क्वथनांक","गलनांक वह ताप है जिस पर ठोस द्रव बनता है। क्वथनांक वह ताप है जिस पर द्रव के पूरे आयतन में वाष्प बनने लगती है।"],
+["गुप्त ऊष्मा","अवस्था परिवर्तन के दौरान दी गई ऊष्मा ताप बढ़ाने के बजाय कणों के बीच आकर्षण को बदलने में लगती है; इसलिए ताप स्थिर रह सकता है।"],
+["वाष्पीकरण","द्रव की सतह से किसी भी ताप पर वाष्प बनने की प्रक्रिया। यह सतही क्षेत्रफल, तापमान, हवा की गति और आर्द्रता पर निर्भर करती है।"],
+["वाष्पीकरण से शीतलता","तेज कण सतह से निकल जाते हैं, इसलिए शेष द्रव की औसत ऊर्जा घटती है और ठंडक महसूस होती है।"],
+["दैनिक जीवन में अनुप्रयोग","मटके का पानी छिद्रों से रिसे पानी के वाष्पीकरण से ठंडा होता है; पसीना वाष्पित होकर शरीर से ऊष्मा लेता है।"],
+["HOTS और सामान्य भ्रांतियाँ","उबलना केवल सतह पर नहीं, पूरे द्रव में होता है; वाष्पीकरण किसी भी ताप पर हो सकता है। पहाड़ी क्षेत्रों में कम वायुदाब से पानी कम ताप पर उबलता है।"]
+];
+const map=document.getElementById("map"),detail=document.getElementById("detail");
+if(supported){concepts.forEach(([name,desc],i)=>{const b=document.createElement("button");b.className="node";b.innerHTML=`<b>${String(i+1).padStart(2,"0")} · ${name}</b><span>${desc.slice(0,82)}…</span>`;b.addEventListener("click",()=>{detail.innerHTML="";const h=document.createElement("h2");h.textContent=name;const p=document.createElement("p");p.textContent=desc;detail.append(h,p)});map.appendChild(b)});}
+else{detail.innerHTML="<h2>इस Chapter की सामग्री अभी उपलब्ध नहीं है</h2><p>अभी विस्तृत interactive mind map केवल Science · UP Board · Class 9 · Chapter 1 के लिए जोड़ा गया है। बाकी chapters का चयन और content अलग से जोड़ा जाएगा।</p>";}
+</script></body></html>
