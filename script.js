@@ -114,14 +114,88 @@ document.addEventListener("DOMContentLoaded", () => {
     "#quizzes"
   ];
 
+  const studyMaterialSelector = document.getElementById("studyMaterialSelector");
+  const studyMaterialTitle = document.getElementById("studyMaterialTitle");
+  const studyMaterialDescription = document.getElementById("studyMaterialDescription");
+  const studyBoardStep = document.getElementById("studyBoardStep");
+  const studyClassStep = document.getElementById("studyClassStep");
+  const studyMaterialResult = document.getElementById("studyMaterialResult");
+  const studyChangeBoard = document.getElementById("studyChangeBoard");
+
+  let selectedStudyResource = "";
+  let selectedStudyBoard = "";
+
+  const studyResourceNames = {
+    "#notes": "Study Notes",
+    "#videos": "Video Lectures",
+    "#pyq": "Previous Year Questions",
+    "#mindmaps": "Mind Maps",
+    "#live": "Live Classes",
+    "#quizzes": "Online Quizzes"
+  };
+
   document.querySelectorAll("a").forEach(link => {
-    if (resourceLinks.includes(link.getAttribute("href"))) {
+    const href = link.getAttribute("href");
+    if (resourceLinks.includes(href)) {
       link.addEventListener("click", event => {
         event.preventDefault();
-        showToast("This learning section will be activated soon.");
+        selectedStudyResource = studyResourceNames[href] || "Study Material";
+
+        if (studyMaterialSelector) {
+          studyMaterialSelector.hidden = false;
+          studyBoardStep.hidden = false;
+          studyClassStep.hidden = true;
+          studyMaterialTitle.textContent = "Select Your Board";
+          studyMaterialDescription.textContent =
+            "Choose a board to find " + selectedStudyResource + ".";
+          studyMaterialResult.textContent = "";
+          studyMaterialSelector.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+          showToast("Study material selector is not available on this page.");
+        }
       });
     }
   });
+
+  if (studyMaterialSelector) {
+    studyMaterialSelector.addEventListener("click", event => {
+      const boardButton = event.target.closest("[data-study-board]");
+      const classButton = event.target.closest("[data-study-class]");
+
+      if (boardButton) {
+        selectedStudyBoard = boardButton.dataset.studyBoard;
+        studyBoardStep.hidden = true;
+        studyClassStep.hidden = false;
+        studyMaterialTitle.textContent = "Select Your Class";
+        studyMaterialDescription.textContent =
+          "Selected Board: " + selectedStudyBoard +
+          " • Choose your class for " + selectedStudyResource + ".";
+        studyMaterialResult.textContent = "";
+      }
+
+      if (classButton) {
+        const selectedClass = classButton.dataset.studyClass;
+        studyMaterialResult.textContent =
+          selectedStudyResource + " • " + selectedStudyBoard +
+          " • Class " + selectedClass +
+          " selected. Matching content will appear here when it is uploaded.";
+        studyMaterialTitle.textContent = "Your Study Material";
+        studyMaterialDescription.textContent =
+          selectedStudyResource + " for " + selectedStudyBoard + ", Class " + selectedClass;
+      }
+    });
+
+    if (studyChangeBoard) {
+      studyChangeBoard.addEventListener("click", () => {
+        studyClassStep.hidden = true;
+        studyBoardStep.hidden = false;
+        studyMaterialTitle.textContent = "Select Your Board";
+        studyMaterialDescription.textContent =
+          "Choose a board to find " + selectedStudyResource + ".";
+        studyMaterialResult.textContent = "";
+      });
+    }
+  }
 
   // 9. Smooth Scroll
   document.querySelectorAll('a[href^="#"]').forEach(link => {

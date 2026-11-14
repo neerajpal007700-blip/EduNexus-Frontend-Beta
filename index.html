@@ -253,6 +253,38 @@
     <a href="#live" class="resource-card"><div class="resource-icon green"><i class="fa-solid fa-video"></i></div><div><h3>Live Classes</h3><p>Interactive learning sessions</p></div><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
     <a href="#quizzes" class="resource-card"><div class="resource-icon orange"><i class="fa-solid fa-brain"></i></div><div><h3>Online Quizzes</h3><p>Test your knowledge</p></div><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
   </div>
+
+  <div class="study-material-selector" id="studyMaterialSelector" hidden>
+    <div class="study-selector-heading">
+      <span class="eyebrow">PERSONALISED STUDY MATERIAL</span>
+      <h3 id="studyMaterialTitle">Select Your Board</h3>
+      <p id="studyMaterialDescription">Choose your education board to continue.</p>
+    </div>
+
+    <div class="study-selector-step" id="studyBoardStep">
+      <div class="study-board-grid">
+        <button type="button" class="study-choice" data-study-board="CBSE">CBSE <span>→</span></button>
+        <button type="button" class="study-choice" data-study-board="UP Board">UP Board <span>→</span></button>
+        <button type="button" class="study-choice" data-study-board="ICSE">ICSE <span>→</span></button>
+        <button type="button" class="study-choice" data-study-board="Other Board">Other Board <span>→</span></button>
+      </div>
+    </div>
+
+    <div class="study-selector-step" id="studyClassStep" hidden>
+      <div class="study-class-grid">
+        <button type="button" class="study-choice" data-study-class="6">Class 6</button>
+        <button type="button" class="study-choice" data-study-class="7">Class 7</button>
+        <button type="button" class="study-choice" data-study-class="8">Class 8</button>
+        <button type="button" class="study-choice" data-study-class="9">Class 9</button>
+        <button type="button" class="study-choice" data-study-class="10">Class 10</button>
+        <button type="button" class="study-choice" data-study-class="11">Class 11</button>
+        <button type="button" class="study-choice" data-study-class="12">Class 12</button>
+      </div>
+      <button type="button" class="study-change-board" id="studyChangeBoard">← Change Board</button>
+    </div>
+
+    <div class="study-material-result" id="studyMaterialResult" aria-live="polite"></div>
+  </div>
 </section>
 
 <section class="test-section section" id="tests">
