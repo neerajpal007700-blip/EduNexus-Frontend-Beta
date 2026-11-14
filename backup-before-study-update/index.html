@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d1b">
+  <meta name="description" content="EduNexus by Neeraj Pal - Your smart learning destination.">
+  <title>EduNexus | Learn Without Limits</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav-container">
+    <a href="#home" class="logo">
+      <span class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+      <span>Edu<span class="accent">Nexus</span>
+      <small>BY NEERAJ PAL</small></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="active">Home</a>
+      <a href="#courses">Courses</a>
+      <a href="#resources">Study Material</a>
+      <a href="#tests">Mock Tests</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <div class="mobile-auth">
+        <a href="#login" class="login-btn">Student Login</a>
+        <a href="#signup" class="signup-btn">Get Started</a>
+      </div>
+    </nav>
+
+    <div class="desktop-auth">
+      <a href="#login" class="login-btn">Login</a>
+      <a href="#signup" class="signup-btn">Join Free <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="announcement">
+        <span class="live-dot"></span>
+        YOUR FUTURE STARTS HERE
+      </div>
+      <h1>Learn Smarter.<br>Dream Bigger.<br><span>Achieve More.</span></h1>
+      <p>One destination for quality education, smart learning resources, practice tests and everything you need to succeed.</p>
+
+      <div class="hero-actions">
+        <a href="#courses" class="primary-btn">Explore Courses <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#resources" class="secondary-btn"><i class="fa-regular fa-circle-play"></i> Start Learning</a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="avatar-stack">
+          <span><i class="fa-solid fa-user"></i></span>
+          <span><i class="fa-solid fa-user-graduate"></i></span>
+          <span><i class="fa-solid fa-book-open"></i></span>
+        </div>
+        <div><strong>Learn. Practice. Grow.</strong><small>Education for every ambitious student</small></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="visual-orbit orbit-one"></div>
+      <div class="visual-orbit orbit-two"></div>
+      <div class="main-illustration">
+        <div class="illustration-top">
+          <span><i class="fa-solid fa-graduation-cap"></i> EduNexus</span>
+          <span class="online-status">● ONLINE</span>
+        </div>
+        <div class="book-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+        <h3>Your Learning Journey</h3>
+        <p>Knowledge is your superpower.</p>
+        <div class="progress-label"><span>Learning progress</span><b>85%</b></div>
+        <div class="progress-track"><span></span></div>
+        <div class="visual-stats">
+          <div><i class="fa-solid fa-book"></i><b>Learn</b><small>New concepts</small></div>
+          <div><i class="fa-solid fa-brain"></i><b>Practice</b><small>Test yourself</small></div>
+          <div><i class="fa-solid fa-trophy"></i><b>Achieve</b><small>Reach goals</small></div>
+        </div>
+      </div>
+      <div class="floating-card card-top"><i class="fa-solid fa-award"></i><span><b>Keep Growing</b><small>Every day matters</small></span></div>
+      <div class="floating-card card-bottom"><i class="fa-solid fa-lightbulb"></i><span><b>Smart Learning</b><small>Learn at your pace</small></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="stats-container">
+    <div class="stat"><i class="fa-solid fa-book-open"></i><div><h3>Courses</h3><p>Structured learning</p></div></div>
+    <div class="stat"><i class="fa-solid fa-file-pdf"></i><div><h3>Notes</h3><p>Study resources</p></div></div>
+    <div class="stat"><i class="fa-solid fa-clipboard-check"></i><div><h3>Tests</h3><p>Practice regularly</p></div></div>
+    <div class="stat"><i class="fa-solid fa-users"></i><div><h3>Community</h3><p>Learn together</p></div></div>
+  </div>
+</section>
+
+<section class="courses-section" id="courses">
+  <div class="section-heading">
+    <span class="section-tag">LEARN • PRACTICE • SUCCEED</span>
+    <h2>Explore Your <span>Subjects</span></h2>
+    <p>Select a subject to explore your class and chapters.</p>
+  </div>
+
+  <div class="subject-grid" id="subjectGrid">
+    <button class="subject-card" data-subject="Mathematics">
+      <span class="subject-icon">📐</span>
+      <strong>Mathematics</strong>
+      <small>Explore Maths</small>
+    </button>
+    <button class="subject-card" data-subject="Science">
+      <span class="subject-icon">🔬</span>
+      <strong>Science</strong>
+      <small>Explore Science</small>
+    </button>
+    <button class="subject-card" data-subject="English">
+      <span class="subject-icon">📖</span>
+      <strong>English</strong>
+      <small>Explore English</small>
+    </button>
+    <button class="subject-card" data-subject="Physics">
+      <span class="subject-icon">⚡</span>
+      <strong>Physics</strong>
+      <small>Explore Physics</small>
+    </button>
+    <button class="subject-card" data-subject="Chemistry">
+      <span class="subject-icon">🧪</span>
+      <strong>Chemistry</strong>
+      <small>Explore Chemistry</small>
+    </button>
+    <button class="subject-card" data-subject="Biology">
+      <span class="subject-icon">🧬</span>
+      <strong>Biology</strong>
+      <small>Explore Biology</small>
+    </button>
+    <button class="subject-card" data-subject="Social Science">
+      <span class="subject-icon">🌍</span>
+      <strong>Social Science</strong>
+      <small>Explore Social Science</small>
+    </button>
+    <button class="subject-card" data-subject="General Knowledge">
+      <span class="subject-icon">🧠</span>
+      <strong>General Knowledge</strong>
+      <small>Explore GK</small>
+    </button>
+  </div>
+
+  <div class="learning-view" id="learningView" hidden>
+    <button class="back-button" id="backToSubjects">← All Subjects</button>
+
+    <div class="learning-heading">
+      <span class="section-tag" id="learningTag">YOUR LEARNING SPACE</span>
+      <h2 id="learningTitle">Select Your Class</h2>
+      <p id="learningDescription">Choose your class to continue.</p>
+    </div>
+
+    <div class="class-grid" id="classGrid" hidden>
+      <button class="class-card" data-class="9">Class 9th <span>→</span></button>
+      <button class="class-card" data-class="10">Class 10th <span>→</span></button>
+      <button class="class-card" data-class="11">Class 11th <span>→</span></button>
+      <button class="class-card" data-class="12">Class 12th <span>→</span></button>
+    </div>
+
+    <button class="back-button" id="backToClasses" hidden>← Change Class</button>
+
+    <div class="chapter-grid" id="chapterGrid" hidden></div>
+
+    <div class="resource-area" id="resourceArea" hidden>
+      <h3 id="resourceTitle">Chapter Study Material</h3>
+      <p>Select what you want to study.</p>
+
+      <div class="resource-grid">
+        <button class="resource-card" data-resource="Notes">
+          <span>📚</span><strong>Notes</strong>
+        </button>
+        <button class="resource-card" data-resource="Video Lectures">
+          <span>🎥</span><strong>Video Lectures</strong>
+        </button>
+        <button class="resource-card" data-resource="MCQ Quizzes">
+          <span>📝</span><strong>MCQ Quizzes</strong>
+        </button>
+        <button class="resource-card" data-resource="Previous Year Questions">
+          <span>📄</span><strong>PYQ</strong>
+        </button>
+        <button class="resource-card" data-resource="Mock Tests">
+          <span>🎯</span><strong>Mock Tests</strong>
+        </button>
+        <button class="resource-card" data-resource="Mind Maps">
+          <span>🧠</span><strong>Mind Maps</strong>
+        </button>
+      </div>
+      <p class="resource-message" id="resourceMessage" aria-live="polite"></p>
+
+      <div class="mindmap-selector" id="mindMapSelector" hidden>
+        <div class="mindmap-step" id="mindMapBoardStep">
+          <span class="mindmap-step-label">STEP 1</span>
+          <h4>Select Your Board</h4>
+          <p>Choose the board you are studying under.</p>
+          <div class="mindmap-option-grid" id="mindMapBoardOptions">
+            <button type="button" class="mindmap-option" data-board="CBSE">CBSE <span>→</span></button>
+            <button type="button" class="mindmap-option" data-board="UP Board">UP Board <span>→</span></button>
+            <button type="button" class="mindmap-option" data-board="ICSE">ICSE <span>→</span></button>
+            <button type="button" class="mindmap-option" data-board="Other Board">Other Board <span>→</span></button>
+          </div>
+        </div>
+
+        <div class="mindmap-step" id="mindMapClassStep" hidden>
+          <span class="mindmap-step-label">STEP 2</span>
+          <h4 id="mindMapClassHeading">Select Your Class</h4>
+          <p id="mindMapBoardSelected"></p>
+          <div class="mindmap-option-grid mindmap-class-grid" id="mindMapClassOptions">
+            <button type="button" class="mindmap-option" data-mindmap-class="6">Class 6</button>
+            <button type="button" class="mindmap-option" data-mindmap-class="7">Class 7</button>
+            <button type="button" class="mindmap-option" data-mindmap-class="8">Class 8</button>
+            <button type="button" class="mindmap-option" data-mindmap-class="9">Class 9</button>
+            <button type="button" class="mindmap-option" data-mindmap-class="10">Class 10</button>
+            <button type="button" class="mindmap-option" data-mindmap-class="11">Class 11</button>
+            <button type="button" class="mindmap-option" data-mindmap-class="12">Class 12</button>
+          </div>
+          <button type="button" class="mindmap-back" id="mindMapChangeBoard">← Change Board</button>
+        </div>
+
+        <p class="mindmap-selection-message" id="mindMapSelectionMessage" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="resources-section section" id="resources">
+  <div class="section-heading">
+    <span class="eyebrow">YOUR DIGITAL LIBRARY</span>
+    <h2>Everything You Need to <span>Learn</span></h2>
+    <p>Access your educational resources in one place.</p>
+  </div>
+  <div class="resource-grid">
+    <a href="#notes" class="resource-card"><div class="resource-icon red"><i class="fa-solid fa-file-pdf"></i></div><div><h3>Study Notes</h3><p>Chapter-wise PDF notes</p></div><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
+    <a href="#videos" class="resource-card"><div class="resource-icon pink"><i class="fa-brands fa-youtube"></i></div><div><h3>Video Lectures</h3><p>Learn through video lessons</p></div><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
+    <a href="#pyq" class="resource-card"><div class="resource-icon blue"><i class="fa-solid fa-file-lines"></i></div><div><h3>Previous Year Questions</h3><p>Prepare with previous papers</p></div><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
+    <a href="#mindmaps" class="resource-card"><div class="resource-icon purple"><i class="fa-solid fa-diagram-project"></i></div><div><h3>Mind Maps</h3><p>Visualise difficult concepts</p></div><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
+    <a href="#live" class="resource-card"><div class="resource-icon green"><i class="fa-solid fa-video"></i></div><div><h3>Live Classes</h3><p>Interactive learning sessions</p></div><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
+    <a href="#quizzes" class="resource-card"><div class="resource-icon orange"><i class="fa-solid fa-brain"></i></div><div><h3>Online Quizzes</h3><p>Test your knowledge</p></div><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
+  </div>
+</section>
+
+<section class="test-section section" id="tests">
+  <div class="test-content">
+    <span class="eyebrow">PRACTICE MAKES PROGRESS</span>
+    <h2>Are You Ready to <span>Challenge Yourself?</span></h2>
+    <p>Practice with mock tests, MCQs and exam-focused questions. Track your preparation and improve your performance.</p>
+    <a href="#quizzes" class="primary-btn">Start Practising <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+  <div class="test-visual">
+    <div class="test-paper">
+      <div class="paper-heading"><i class="fa-solid fa-clipboard-list"></i> MOCK TEST</div>
+      <h3>Test Your Knowledge</h3>
+      <p>Which of the following is the correct answer?</p>
+      <div class="answer-option">A. Option One</div>
+      <div class="answer-option selected">B. Option Two <i class="fa-solid fa-circle-check"></i></div>
+      <div class="answer-option">C. Option Three</div>
+      <div class="answer-option">D. Option Four</div>
+      <div class="paper-footer">Practice • Improve • Succeed</div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section section" id="about">
+  <div class="about-visual"><div class="about-icon"><i class="fa-solid fa-graduation-cap"></i></div><span class="about-label">LEARN WITHOUT LIMITS</span></div>
+  <div class="about-content">
+    <span class="eyebrow">ABOUT EDUNEXUS</span>
+    <h2>Education That Moves You <span>Forward.</span></h2>
+    <p>EduNexus by Neeraj Pal is designed to make quality educational resources accessible to students. Our goal is to create a smart, organised and engaging learning environment.</p>
+    <ul>
+      <li><i class="fa-solid fa-circle-check"></i> Student-focused learning resources</li>
+      <li><i class="fa-solid fa-circle-check"></i> Practice-oriented preparation</li>
+      <li><i class="fa-solid fa-circle-check"></i> Easy access to study materials</li>
+    </ul>
+    <a href="#courses" class="primary-btn">Discover More <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div>
+    <span class="eyebrow">YOUR NEXT CHAPTER STARTS NOW</span>
+    <h2>Make Today Count.<br><span>Build Your Future.</span></h2>
+    <p>Start your learning journey with EduNexus.</p>
+  </div>
+  <a href="#signup" class="primary-btn">Join EduNexus <i class="fa-solid fa-arrow-right"></i></a>
+</section>
+
+<section class="contact-section section" id="contact">
+  <div class="section-heading">
+    <span class="eyebrow">WE ARE HERE TO HELP</span>
+    <h2>Get In <span>Touch</span></h2>
+    <p>Have a question? Contact our support team.</p>
+  </div>
+  <div class="contact-card">
+    <i class="fa-solid fa-envelope"></i>
+    <h3>Email Support</h3>
+    <p>supportteamedunexus@gmail.com</p>
+    <a href="mailto:supportteamedunexus@gmail.com">Send an Email <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="#home" class="logo"><span class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></span><span>Edu<span class="accent">Nexus</span><small>BY NEERAJ PAL</small></span></a>
+      <p>Empowering students through smarter learning and accessible education.</p>
+    </div>
+    <div><h4>Quick Links</h4><a href="#home">Home</a><a href="#courses">Courses</a><a href="#about">About Us</a><a href="#contact">Contact</a></div>
+    <div><h4>Study Resources</h4><a href="#resources">Notes</a><a href="#resources">Videos</a><a href="#tests">Mock Tests</a><a href="#resources">Quizzes</a></div>
+    <div><h4>Student Area</h4><a href="#login">Student Login</a><a href="#signup">Register</a><a href="#resources">Dashboard</a></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© <span id="year"></span> EduNexus by Neeraj Pal. All Rights Reserved.</p>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>

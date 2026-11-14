@@ -402,6 +402,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let boardName = "";
   document.querySelectorAll(".resources-section .resource-grid a").forEach(card => {
     card.addEventListener("click", event => {
+      // Mind Maps opens its own dedicated page directly.
+      if (card.hasAttribute("data-open-mindmap-page")) return;
       event.preventDefault();
       resourceName = card.querySelector("h3")?.textContent.trim() || "Study Material";
       boardName = "";
