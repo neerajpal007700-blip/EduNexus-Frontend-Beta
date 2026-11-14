@@ -403,3 +403,169 @@ button{font:inherit}
     font-size: 15px;
   }
 }
+
+
+
+/* =========================================================
+   EDUNEXUS PREMIUM MOTION LAYER — safe visual-only overrides
+   Existing layout, IDs, links and learning flow remain intact.
+   ========================================================= */
+:root {
+  --motion-ease: cubic-bezier(.22, .8, .25, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(108,124,255,.13), transparent 34%),
+    radial-gradient(ellipse at 88% 30%, rgba(55,217,232,.08), transparent 30%);
+  background-attachment: fixed;
+}
+
+.hero {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  filter: blur(75px);
+  opacity: .22;
+  pointer-events: none;
+  animation: edunexusGlow 11s ease-in-out infinite alternate;
+}
+.hero::before {
+  background: #6c7cff;
+  top: -180px;
+  left: -120px;
+}
+.hero::after {
+  background: #27d9e8;
+  right: -170px;
+  bottom: -190px;
+  animation-delay: -5s;
+}
+@keyframes edunexusGlow {
+  from { transform: translate3d(0,0,0) scale(.85); }
+  to { transform: translate3d(45px,35px,0) scale(1.18); }
+}
+
+.hero-content > * {
+  animation: edunexusRise .8s var(--motion-ease) both;
+}
+.hero-content > *:nth-child(2) { animation-delay: .1s; }
+.hero-content > *:nth-child(3) { animation-delay: .2s; }
+.hero-content > *:nth-child(4) { animation-delay: .3s; }
+@keyframes edunexusRise {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-visual,
+.hero-illustration,
+.hero-card,
+.floating-card {
+  will-change: transform;
+}
+.hero-visual { animation: edunexusFloat 6s ease-in-out infinite; }
+@keyframes edunexusFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.floating-card { animation: edunexusFloat 5s ease-in-out infinite; }
+.floating-card:nth-child(2) { animation-delay: -2.2s; }
+
+.subject-card,
+.course-card,
+.resource-card,
+.stat-card,
+.test-card,
+.learning-card {
+  transition:
+    transform .35s var(--motion-ease),
+    border-color .35s ease,
+    box-shadow .35s ease,
+    background-color .35s ease;
+}
+.subject-card:hover,
+.course-card:hover,
+.resource-card:hover,
+.test-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(108,124,255,.58);
+  box-shadow: 0 18px 48px rgba(0,0,0,.24), 0 0 24px rgba(108,124,255,.10);
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .75s var(--motion-ease), transform .75s var(--motion-ease);
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-on-scroll .section-heading,
+.reveal-on-scroll .section-title {
+  transition: color .3s ease;
+}
+
+button, .btn, a {
+  -webkit-tap-highlight-color: transparent;
+}
+.btn {
+  transition: transform .25s var(--motion-ease), box-shadow .25s ease, filter .25s ease;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.08);
+}
+.btn:active { transform: translateY(0) scale(.98); }
+
+.nav-links a { position: relative; }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .3s ease;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  body { background-attachment: scroll; }
+  .hero::before, .hero::after { width: 230px; height: 230px; filter: blur(55px); }
+  .hero-visual, .floating-card { animation-duration: 7s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal-on-scroll { opacity: 1; transform: none; }
+}
