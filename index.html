@@ -167,6 +167,13 @@
       <p id="learningDescription">Choose your class to continue.</p>
     </div>
 
+    <div class="board-picker" id="boardGrid" hidden aria-label="Select education board">
+      <button class="board-card" type="button" data-board="UP Board"><strong>UP Board</strong><small>उत्तर प्रदेश माध्यमिक शिक्षा परिषद</small></button>
+      <button class="board-card" type="button" data-board="CBSE"><strong>CBSE</strong><small>Central Board of Secondary Education</small></button>
+      <button class="board-card" type="button" data-board="ICSE"><strong>ICSE</strong><small>Indian Certificate of Secondary Education</small></button>
+      <button class="board-card" type="button" data-board="Other Board"><strong>Other Board</strong><small>Choose another curriculum</small></button>
+    </div>
+
     <div class="class-grid" id="classGrid" hidden>
       <button class="class-card" data-class="9">Class 9th <span>→</span></button>
       <button class="class-card" data-class="10">Class 10th <span>→</span></button>
@@ -203,38 +210,6 @@
         </button>
       </div>
       <p class="resource-message" id="resourceMessage" aria-live="polite"></p>
-
-      <div class="mindmap-selector" id="mindMapSelector" hidden>
-        <div class="mindmap-step" id="mindMapBoardStep">
-          <span class="mindmap-step-label">STEP 1</span>
-          <h4>Select Your Board</h4>
-          <p>Choose the board you are studying under.</p>
-          <div class="mindmap-option-grid" id="mindMapBoardOptions">
-            <button type="button" class="mindmap-option" data-board="CBSE">CBSE <span>→</span></button>
-            <button type="button" class="mindmap-option" data-board="UP Board">UP Board <span>→</span></button>
-            <button type="button" class="mindmap-option" data-board="ICSE">ICSE <span>→</span></button>
-            <button type="button" class="mindmap-option" data-board="Other Board">Other Board <span>→</span></button>
-          </div>
-        </div>
-
-        <div class="mindmap-step" id="mindMapClassStep" hidden>
-          <span class="mindmap-step-label">STEP 2</span>
-          <h4 id="mindMapClassHeading">Select Your Class</h4>
-          <p id="mindMapBoardSelected"></p>
-          <div class="mindmap-option-grid mindmap-class-grid" id="mindMapClassOptions">
-            <button type="button" class="mindmap-option" data-mindmap-class="6">Class 6</button>
-            <button type="button" class="mindmap-option" data-mindmap-class="7">Class 7</button>
-            <button type="button" class="mindmap-option" data-mindmap-class="8">Class 8</button>
-            <button type="button" class="mindmap-option" data-mindmap-class="9">Class 9</button>
-            <button type="button" class="mindmap-option" data-mindmap-class="10">Class 10</button>
-            <button type="button" class="mindmap-option" data-mindmap-class="11">Class 11</button>
-            <button type="button" class="mindmap-option" data-mindmap-class="12">Class 12</button>
-          </div>
-          <button type="button" class="mindmap-back" id="mindMapChangeBoard">← Change Board</button>
-        </div>
-
-        <p class="mindmap-selection-message" id="mindMapSelectionMessage" aria-live="polite"></p>
-      </div>
     </div>
   </div>
 </section>
@@ -253,37 +228,15 @@
     <a href="#live" class="resource-card"><div class="resource-icon green"><i class="fa-solid fa-video"></i></div><div><h3>Live Classes</h3><p>Interactive learning sessions</p></div><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
     <a href="#quizzes" class="resource-card"><div class="resource-icon orange"><i class="fa-solid fa-brain"></i></div><div><h3>Online Quizzes</h3><p>Test your knowledge</p></div><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
   </div>
-
-  <div class="study-material-selector" id="studyMaterialSelector" hidden>
-    <div class="study-selector-heading">
-      <span class="eyebrow">PERSONALISED STUDY MATERIAL</span>
-      <h3 id="studyMaterialTitle">Select Your Board</h3>
-      <p id="studyMaterialDescription">Choose your education board to continue.</p>
+  <div class="study-selector" id="studyMaterialSelector" hidden>
+    <div class="study-selector-head"><span class="section-tag">PERSONALISED RESOURCE LIBRARY</span><h3 id="studySelectorTitle">Select Board</h3><p id="studySelectorText">अपना बोर्ड चुनें और फिर कक्षा चुनें।</p></div>
+    <div class="study-board-grid" id="studyBoardGrid">
+      <button type="button" data-study-board="CBSE">CBSE</button><button type="button" data-study-board="UP Board">UP Board</button><button type="button" data-study-board="ICSE">ICSE</button><button type="button" data-study-board="Other Board">Other Board</button>
     </div>
-
-    <div class="study-selector-step" id="studyBoardStep">
-      <div class="study-board-grid">
-        <button type="button" class="study-choice" data-study-board="CBSE">CBSE <span>→</span></button>
-        <button type="button" class="study-choice" data-study-board="UP Board">UP Board <span>→</span></button>
-        <button type="button" class="study-choice" data-study-board="ICSE">ICSE <span>→</span></button>
-        <button type="button" class="study-choice" data-study-board="Other Board">Other Board <span>→</span></button>
-      </div>
+    <div class="study-class-grid" id="studyClassGrid" hidden>
+      <button type="button" data-study-class="6">Class 6</button><button type="button" data-study-class="7">Class 7</button><button type="button" data-study-class="8">Class 8</button><button type="button" data-study-class="9">Class 9</button><button type="button" data-study-class="10">Class 10</button><button type="button" data-study-class="11">Class 11</button><button type="button" data-study-class="12">Class 12</button>
     </div>
-
-    <div class="study-selector-step" id="studyClassStep" hidden>
-      <div class="study-class-grid">
-        <button type="button" class="study-choice" data-study-class="6">Class 6</button>
-        <button type="button" class="study-choice" data-study-class="7">Class 7</button>
-        <button type="button" class="study-choice" data-study-class="8">Class 8</button>
-        <button type="button" class="study-choice" data-study-class="9">Class 9</button>
-        <button type="button" class="study-choice" data-study-class="10">Class 10</button>
-        <button type="button" class="study-choice" data-study-class="11">Class 11</button>
-        <button type="button" class="study-choice" data-study-class="12">Class 12</button>
-      </div>
-      <button type="button" class="study-change-board" id="studyChangeBoard">← Change Board</button>
-    </div>
-
-    <div class="study-material-result" id="studyMaterialResult" aria-live="polite"></div>
+    <p class="study-selection-result" id="studySelectionResult" aria-live="polite"></p>
   </div>
 </section>
 

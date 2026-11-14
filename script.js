@@ -114,88 +114,14 @@ document.addEventListener("DOMContentLoaded", () => {
     "#quizzes"
   ];
 
-  const studyMaterialSelector = document.getElementById("studyMaterialSelector");
-  const studyMaterialTitle = document.getElementById("studyMaterialTitle");
-  const studyMaterialDescription = document.getElementById("studyMaterialDescription");
-  const studyBoardStep = document.getElementById("studyBoardStep");
-  const studyClassStep = document.getElementById("studyClassStep");
-  const studyMaterialResult = document.getElementById("studyMaterialResult");
-  const studyChangeBoard = document.getElementById("studyChangeBoard");
-
-  let selectedStudyResource = "";
-  let selectedStudyBoard = "";
-
-  const studyResourceNames = {
-    "#notes": "Study Notes",
-    "#videos": "Video Lectures",
-    "#pyq": "Previous Year Questions",
-    "#mindmaps": "Mind Maps",
-    "#live": "Live Classes",
-    "#quizzes": "Online Quizzes"
-  };
-
   document.querySelectorAll("a").forEach(link => {
-    const href = link.getAttribute("href");
-    if (resourceLinks.includes(href)) {
+    if (resourceLinks.includes(link.getAttribute("href"))) {
       link.addEventListener("click", event => {
         event.preventDefault();
-        selectedStudyResource = studyResourceNames[href] || "Study Material";
-
-        if (studyMaterialSelector) {
-          studyMaterialSelector.hidden = false;
-          studyBoardStep.hidden = false;
-          studyClassStep.hidden = true;
-          studyMaterialTitle.textContent = "Select Your Board";
-          studyMaterialDescription.textContent =
-            "Choose a board to find " + selectedStudyResource + ".";
-          studyMaterialResult.textContent = "";
-          studyMaterialSelector.scrollIntoView({ behavior: "smooth", block: "center" });
-        } else {
-          showToast("Study material selector is not available on this page.");
-        }
+        showToast("This learning section will be activated soon.");
       });
     }
   });
-
-  if (studyMaterialSelector) {
-    studyMaterialSelector.addEventListener("click", event => {
-      const boardButton = event.target.closest("[data-study-board]");
-      const classButton = event.target.closest("[data-study-class]");
-
-      if (boardButton) {
-        selectedStudyBoard = boardButton.dataset.studyBoard;
-        studyBoardStep.hidden = true;
-        studyClassStep.hidden = false;
-        studyMaterialTitle.textContent = "Select Your Class";
-        studyMaterialDescription.textContent =
-          "Selected Board: " + selectedStudyBoard +
-          " • Choose your class for " + selectedStudyResource + ".";
-        studyMaterialResult.textContent = "";
-      }
-
-      if (classButton) {
-        const selectedClass = classButton.dataset.studyClass;
-        studyMaterialResult.textContent =
-          selectedStudyResource + " • " + selectedStudyBoard +
-          " • Class " + selectedClass +
-          " selected. Matching content will appear here when it is uploaded.";
-        studyMaterialTitle.textContent = "Your Study Material";
-        studyMaterialDescription.textContent =
-          selectedStudyResource + " for " + selectedStudyBoard + ", Class " + selectedClass;
-      }
-    });
-
-    if (studyChangeBoard) {
-      studyChangeBoard.addEventListener("click", () => {
-        studyClassStep.hidden = true;
-        studyBoardStep.hidden = false;
-        studyMaterialTitle.textContent = "Select Your Board";
-        studyMaterialDescription.textContent =
-          "Choose a board to find " + selectedStudyResource + ".";
-        studyMaterialResult.textContent = "";
-      });
-    }
-  }
 
   // 9. Smooth Scroll
   document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -239,6 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!subjectGrid || !learningView) return;
 
   const classGrid = document.getElementById("classGrid");
+  const boardGrid = document.getElementById("boardGrid");
   const chapterGrid = document.getElementById("chapterGrid");
   const resourceArea = document.getElementById("resourceArea");
 
@@ -251,6 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const backToClasses = document.getElementById("backToClasses");
 
   let selectedSubject = "";
+  let selectedBoard = "";
   let selectedClass = "";
   let selectedChapter = "";
 
@@ -259,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
     learningView.hidden = true;
     subjectGrid.hidden = false;
     classGrid.hidden = true;
+    if (boardGrid) boardGrid.hidden = true;
     chapterGrid.hidden = true;
     resourceArea.hidden = true;
   }
@@ -266,18 +195,24 @@ document.addEventListener("DOMContentLoaded", () => {
   // SHOW CLASSES
   function showClasses(subject) {
     selectedSubject = subject;
+    selectedBoard = "";
     selectedClass = "";
     selectedChapter = "";
 
     subjectGrid.hidden = true;
     learningView.hidden = false;
 
-    learningTitle.textContent = subject + " - Select Your Class";
-
-    learningDescription.textContent =
-      "Choose Class 9th, 10th, 11th or 12th.";
-
-    classGrid.hidden = false;
+    if (selectedSubject.trim().toLowerCase() === "science") {
+      learningTitle.textContent = "Science - Select Your Board";
+      learningDescription.textContent = "पहले अपना बोर्ड चुनें, फिर कक्षा और अध्याय चुनें.";
+      if (boardGrid) boardGrid.hidden = false;
+      classGrid.hidden = true;
+    } else {
+      learningTitle.textContent = subject + " - Select Your Class";
+      learningDescription.textContent = "Choose Class 9th, 10th, 11th or 12th.";
+      if (boardGrid) boardGrid.hidden = true;
+      classGrid.hidden = false;
+    }
     chapterGrid.hidden = true;
     resourceArea.hidden = true;
     backToClasses.hidden = true;
@@ -289,12 +224,13 @@ document.addEventListener("DOMContentLoaded", () => {
     selectedChapter = "";
 
     learningTitle.textContent =
-      selectedSubject + " - Class " + selectedClass;
+      selectedSubject + (selectedBoard ? " • " + selectedBoard : "") + " - Class " + selectedClass;
 
     learningDescription.textContent =
       "Select a chapter to access its complete study material.";
 
     classGrid.hidden = true;
+    if (boardGrid) boardGrid.hidden = true;
     chapterGrid.hidden = false;
     resourceArea.hidden = true;
     backToClasses.hidden = false;
@@ -347,6 +283,19 @@ document.addEventListener("DOMContentLoaded", () => {
     showClasses(card.dataset.subject);
   });
 
+  // BOARD CLICK — shown for Science
+  if (boardGrid) {
+    boardGrid.addEventListener("click", event => {
+      const card = event.target.closest("[data-board]");
+      if (!card) return;
+      selectedBoard = card.dataset.board;
+      boardGrid.hidden = true;
+      classGrid.hidden = false;
+      learningTitle.textContent = "Science • " + selectedBoard + " • Select Your Class";
+      learningDescription.textContent = "अब अपनी कक्षा चुनें.";
+    });
+  }
+
   // CLASS CLICK
   classGrid.addEventListener("click", event => {
 
@@ -362,11 +311,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // BACK TO CLASSES
   backToClasses.addEventListener("click", () => {
-
-    classGrid.hidden = false;
     chapterGrid.hidden = true;
     resourceArea.hidden = true;
-
+    if (selectedSubject.trim().toLowerCase() === "science" && boardGrid) {
+      classGrid.hidden = true;
+      boardGrid.hidden = false;
+      learningTitle.textContent = "Science - Select Your Board";
+      learningDescription.textContent = "अपना बोर्ड चुनें.";
+    } else {
+      classGrid.hidden = false;
+    }
   });
 
   // RESOURCE BUTTONS + QUIZ REDIRECTION
@@ -376,20 +330,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const resource = button.dataset.resource;
 
-      const mindMapSelector = document.getElementById("mindMapSelector");
-      const mindMapBoardStep = document.getElementById("mindMapBoardStep");
-      const mindMapClassStep = document.getElementById("mindMapClassStep");
-      const mindMapBoardSelected = document.getElementById("mindMapBoardSelected");
-      const mindMapSelectionMessage = document.getElementById("mindMapSelectionMessage");
-
-      if (mindMapSelector) {
-        mindMapSelector.hidden = resource.trim().toLowerCase() !== "mind maps";
-        if (resource.trim().toLowerCase() === "mind maps") {
-          mindMapBoardStep.hidden = false;
-          mindMapClassStep.hidden = true;
-          mindMapSelectionMessage.textContent = "";
-          resourceMessage.textContent = "First select your board, then choose your class.";
-        }
+      // CLASS 9 SCIENCE UP BOARD CHAPTER 1 ADVANCED MIND MAP
+      if (
+        resource.trim().toLowerCase() === "mind maps" &&
+        selectedSubject.trim().toLowerCase() === "science" &&
+        selectedBoard === "UP Board" &&
+        selectedClass === "9" &&
+        selectedChapter === "Chapter 1"
+      ) {
+        window.location.href = "class9-science-upboard-ch1-mindmap.html";
+        return;
       }
 
       // CLASS 9 MATHEMATICS CHAPTER 1 QUIZ
@@ -434,47 +384,49 @@ if (
 
     });
 
-
-
-  // MIND MAPS: BOARD → CLASS selection
-  const mindMapSelector = document.getElementById("mindMapSelector");
-  const mindMapBoardStep = document.getElementById("mindMapBoardStep");
-  const mindMapClassStep = document.getElementById("mindMapClassStep");
-  const mindMapBoardSelected = document.getElementById("mindMapBoardSelected");
-  const mindMapSelectionMessage = document.getElementById("mindMapSelectionMessage");
-  const mindMapChangeBoard = document.getElementById("mindMapChangeBoard");
-  let selectedMindMapBoard = "";
-
-  if (mindMapSelector) {
-    mindMapSelector.addEventListener("click", event => {
-      const boardButton = event.target.closest("[data-board]");
-      const classButton = event.target.closest("[data-mindmap-class]");
-
-      if (boardButton) {
-        selectedMindMapBoard = boardButton.dataset.board;
-        mindMapBoardSelected.textContent = "Selected Board: " + selectedMindMapBoard;
-        mindMapBoardStep.hidden = true;
-        mindMapClassStep.hidden = false;
-        mindMapSelectionMessage.textContent = "";
-      }
-
-      if (classButton) {
-        const selectedMindMapClass = classButton.dataset.mindmapClass;
-        mindMapSelectionMessage.textContent =
-          selectedMindMapBoard + " • Class " + selectedMindMapClass +
-          " selected. Mind Maps for this selection will appear here when uploaded.";
-      }
-    });
-
-    if (mindMapChangeBoard) {
-      mindMapChangeBoard.addEventListener("click", () => {
-        mindMapClassStep.hidden = true;
-        mindMapBoardStep.hidden = false;
-        mindMapSelectionMessage.textContent = "";
-      });
-    }
-  }
-
   });
 
+});
+
+
+/* GLOBAL STUDY MATERIAL: BOARD -> CLASS */
+document.addEventListener("DOMContentLoaded", () => {
+  const selector = document.getElementById("studyMaterialSelector");
+  if (!selector) return;
+  const boardGrid = document.getElementById("studyBoardGrid");
+  const classGrid = document.getElementById("studyClassGrid");
+  const title = document.getElementById("studySelectorTitle");
+  const text = document.getElementById("studySelectorText");
+  const result = document.getElementById("studySelectionResult");
+  let resourceName = "";
+  let boardName = "";
+  document.querySelectorAll(".resources-section .resource-grid a").forEach(card => {
+    card.addEventListener("click", event => {
+      event.preventDefault();
+      resourceName = card.querySelector("h3")?.textContent.trim() || "Study Material";
+      boardName = "";
+      selector.hidden = false;
+      boardGrid.hidden = false;
+      classGrid.hidden = true;
+      title.textContent = resourceName + " • Select Board";
+      text.textContent = "पहले अपना बोर्ड चुनें, फिर कक्षा चुनें।";
+      result.textContent = "";
+      selector.scrollIntoView({behavior:"smooth",block:"center"});
+    });
+  });
+  boardGrid.addEventListener("click", event => {
+    const btn = event.target.closest("[data-study-board]");
+    if (!btn) return;
+    boardName = btn.dataset.studyBoard;
+    boardGrid.hidden = true;
+    classGrid.hidden = false;
+    title.textContent = resourceName + " • " + boardName + " • Select Class";
+    text.textContent = "अब अपनी कक्षा चुनें।";
+  });
+  classGrid.addEventListener("click", event => {
+    const btn = event.target.closest("[data-study-class]");
+    if (!btn) return;
+    const cls = btn.dataset.studyClass;
+    result.textContent = resourceName + " • " + boardName + " • Class " + cls + " — matching content यहाँ उपलब्ध होने पर दिखाई देगा।";
+  });
 });
